@@ -1,0 +1,84 @@
+<h1 class="container text-center">Formulario Normal</h1>
+{{>flash}}
+<form class="row g-3" action="/formulario/normal" method="POST">
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Nombres</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Nombre"
+      aria-label="First name"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputSurname" class="form-label">Apellidos</label>
+    <input
+      type="text"
+      name="lastName"
+      class="form-control"
+      placeholder="Apellidos"
+      aria-label="Last name"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      id="inputEmail4"
+      placeholder="Ingrese un correo electrónico"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      name="password"
+      class="form-control"
+      id="inputPassword4"
+      placeholder="Ingrese una contraseña"
+    />
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Dirección</label>
+    <input
+      type="text"
+      name="address"
+      class="form-control"
+      id="inputAddress"
+      placeholder="Calle"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Comuna</label>
+    <input
+      type="text"
+      name="city"
+      class="form-control"
+      id="inputCity"
+      placeholder="Comuna"
+    />
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">País</label>
+    <select id="inputState" class="form-select" name="state">
+      <option Seleccionado>Seleccionar...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      name="text"
+      rows="3"
+    ></textarea>
+  </div>
+  <div class="d-flex justify-content-center">
+    <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" />
+    <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+  </div>
+</form>

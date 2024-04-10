@@ -1,0 +1,113 @@
+<nav
+  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+  aria-label="breadcrumb"
+>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+    <li class="breadcrumb-item"><a
+        href="/productos/categorias"
+      >Categorías</a></li>
+    <li class="breadcrumb-item"><a
+        href="/productos/todos-los-productos">Todos los productos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Agregar Productos</li>
+  </ol>
+</nav>
+
+<h1 class="container text-center">Agregar Productos</h1>
+{{>flash}}
+
+<form class="row g-3" action="/productos/todos-los-productos/add" method="POST">
+  <div class="col-md-6">
+    <label for="categoryList" class="form-label">Categoría</label>
+    <select name="categoryList"
+      id="categoryList"
+      class="form-control">
+      {{#each categoryList}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+      </select>
+  </div>
+  <div class="col-md-6">
+    <label for="name" class="form-label">Nombre</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      placeholder="Ingrese el nombre del producto"
+    />
+  </div>
+
+  <div class="col-md-6">
+    <label for="price" class="form-label">Precio</label>
+    <input
+      type="text"
+      name="price"
+      id="price"
+      class="form-control"
+      placeholder="Ingrese el precio del producto"
+      onkeypress="return soloNumeros(event)"
+    />
+  </div>
+
+  <div class="col-md-6">
+    <label for="description" class="form-label">Descripción</label>
+    <input
+      type="text"
+      name="description"
+      id="description"
+      class="form-control"
+      placeholder="Ingrese una descripción del producto"
+    />
+  </div>
+
+  <div class="col-md-6">
+    <label for="description" class="form-label">Stock</label>
+    <input
+      type="text"
+      name="stock"
+      id="stock"
+      class="form-control"
+      placeholder="Ingrese el stock disponible del producto"
+      onkeypress="return soloNumeros(event)"
+    />
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" />
+    <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+  </div>
+</form>
+{{!-- <form
+  action="/productos/categorias/add?_csrf={{csrfToken}}"
+  method="POST"
+  name="form"
+  enctype="multipart/form-data"
+>
+
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Nombre</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Ingrese nombre de la categoría"
+    />
+  </div>
+
+  <div class="col-md-6">
+    <label for="images" class="form-label">Foto</label>
+    <input
+      type="file"
+      name="image"
+      id="images"
+      class="form-control"
+      placeholder="Subir archivo"
+      aria-label="Archivo"
+    />
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+  </div>
+</form> --}}

@@ -1,0 +1,23 @@
+<h1 class="container text-center">Cargar imágen</h1>
+<form
+  action="/formulario/upload?_csrf={{csrfToken}}"
+  method="POST"
+  name="form"
+  enctype="multipart/form-data"
+>
+  <div class="col-md-6 container text-center">
+    <label for="images" class="form-label">Foto</label>
+    <input
+      type="file"
+      name="image"
+      id="images"
+      class="form-control"
+      placeholder="Subir archivo"
+      aria-label="Archivo"
+    />
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+  </div>
+</form>

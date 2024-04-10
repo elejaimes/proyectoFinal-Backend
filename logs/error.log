@@ -1,0 +1,78 @@
+[31m[2024-04-10T02:38:06.593Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:39:44.855Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:39:48.875Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:39:56.506Z] - level: error - TypeError: req.isAuthenticated is not a function[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:95:11[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-10T02:41:44.281Z] - level: error - TypeError: req.isAuthenticated is not a function[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:95:11[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-10T02:41:44.772Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:42:37.620Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:45:46.379Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:45:54.569Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:47:39.823Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:48:58.865Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:49:32.877Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:50:47.480Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:52:11.702Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T02:53:36.419Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T03:51:30.874Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T03:51:51.935Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T03:54:35.764Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T03:54:59.230Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T03:55:02.211Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:06:02.247Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:10:02.007Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:16:33.038Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:18:18.706Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:18:42.715Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:18:46.200Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T04:22:37.945Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:04:54.359Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:06:16.621Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:09:51.562Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:10:29.557Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:11:35.887Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:11:59.751Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:12:27.532Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:12:54.864Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:15:18.020Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:15:37.563Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:16:29.521Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:22:10.150Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:25:28.810Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:26:13.760Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:26:16.969Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:26:51.328Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:47:07.560Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T05:48:54.401Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:04:06.800Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:06:23.824Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:06:31.216Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:06:46.926Z] - level: error - ===> ⚠️ Nodemailer error: read ECONNRESET[39m
+[31m[2024-04-10T06:06:57.302Z] - level: error - ===> ⚠️ Nodemailer error: read ECONNRESET[39m
+[31m[2024-04-10T06:07:50.960Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:08:05.787Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:10:00.212Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:10:11.656Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:10:31.442Z] - level: error - ===> ⚠️ Nodemailer error: Error: read ECONNRESET[39m
+[31m[2024-04-10T06:12:32.008Z] - level: error - ===> ⚠️ Nodemailer error during verification: read ECONNRESET[39m
+[31m[2024-04-10T06:17:44.569Z] - level: error - ===> ⚠️ Nodemailer error during verification: self-signed certificate in certificate chain[39m
+[31m[2024-04-10T06:23:54.246Z] - level: error - ===> ⚠️ Nodemailer error during verification: self-signed certificate in certificate chain[39m

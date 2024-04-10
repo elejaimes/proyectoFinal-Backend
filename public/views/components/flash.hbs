@@ -1,0 +1,17 @@
+{{#if errorMessages}}
+  <div class="alert alert-danger alert-flash" role="alert">
+    <ul>
+      {{#each errorMessages}}
+        <li>{{this.msg}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+{{#if successMessages}}
+  <div class="alert alert-success alert-flash" role="alert">
+    {{#each successMessages}}
+      {{this}}
+    {{/each}}
+  </div>
+{{/if}}
