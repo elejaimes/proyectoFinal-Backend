@@ -3,11 +3,15 @@ import { UserModel } from "../models/user.js";
 export const getUsers = async (limit, since) => {
   try {
     const activUser = { state: true };
-    const allUsers = await Promise.all([
-      UserModel.find(activUser).limit(Number(limit)).skip(Number(since)),
+    const [users, totalUsers] = await Promise.all([
+      UserModel.find(activUser)
+        .populate("role", "role")
+        .limit(Number(limit))
+        .skip(Number(since))
+        .lean(),
       UserModel.countDocuments(activUser).exec(),
     ]);
-    return allUsers;
+    return [users, totalUsers];
   } catch (error) {
     throw new Error(`Error in userDAO/getUsers: ${error}`);
   }
@@ -19,13 +23,13 @@ export const postUser = async (user) => {
     await newUser.save();
     return newUser;
   } catch (error) {
-    throw new Error(`Error in userDAO/getUsers: ${error}`);
+    throw new Error(`Error in userDAO/postUser: ${error}`);
   }
 };
 
 export const getUserById = async (id) => {
   try {
-    const userById = await UserModel.findById(id).lean().exec();
+    const userById = await UserModel.findById(id).lean();
     return userById;
   } catch (error) {
     throw new Error(`Error in userDAO/getUsers: ${error}`);

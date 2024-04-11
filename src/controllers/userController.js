@@ -10,6 +10,9 @@ export const getUsers = async (req, res) => {
 
     res.render("users", {
       title: "Listado de Usuarios",
+      status: "Ok",
+      message: "Usuarios Activos",
+      method: req.method,
       totalUsers,
       users,
     });
@@ -24,7 +27,7 @@ export const getUsers = async (req, res) => {
 export const getUsers_add = async (req, res) => {
   try {
     const roles = await roleService.getRoleList();
-    return res.render("createUser", {
+    return res.render("userCreateForm", {
       title: "Crear usuario",
       roles,
     });
@@ -37,33 +40,41 @@ export const getUsers_add = async (req, res) => {
 
 export const postUser = async (req, res) => {
   try {
-    console.log("Entrando a postUser");
-    const body = req.body;
-    const user = await userService.postUser(body);
-    console.log(user);
+    const { name, email, password, address, role } = req.body;
+
+    const newUser = {
+      name,
+      email,
+      password,
+      address,
+      role,
+    };
+
+    const user = await userService.postUser(newUser);
 
     req.flash("successMessages", "Usuario creado exitosamente");
-    res.redirect("/users/admin/add");
+    res.redirect("/users");
   } catch (error) {
-    console.log("Error en postUser:", error);
     req.flash("errorMessages", [{ msg: error.message }]);
     return res.redirect("/users");
   }
 };
 
-export const getUserById = async (req, res) => {
+export const editUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await userService.getUserById(id);
+    const editUser = await userService.getUserById(id);
+    const roles = await roleService.getRoleList();
 
-    res.json({
-      message: `Usuario ID: ${id} encontrado`,
-      user,
+    return res.render("userEditForm", {
+      title: "Editar usuario",
+      editUser,
+      roles,
     });
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
-    return res.redirect("/");
+    return res.redirect("/users");
   }
 };
 

@@ -25,3 +25,10 @@ export const emailExist = async (email = "") => {
   }
   return true;
 };
+
+export const userByIdExist = async (id = "") => {
+  const userById = await UserModel.findById(id).lean().exec();
+  if (!userById) {
+    throw new Error(`El ID: ${id} no existe`);
+  }
+};

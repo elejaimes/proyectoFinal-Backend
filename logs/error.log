@@ -76,3 +76,15 @@
 [31m[2024-04-10T06:12:32.008Z] - level: error - ===> ⚠️ Nodemailer error during verification: read ECONNRESET[39m
 [31m[2024-04-10T06:17:44.569Z] - level: error - ===> ⚠️ Nodemailer error during verification: self-signed certificate in certificate chain[39m
 [31m[2024-04-10T06:23:54.246Z] - level: error - ===> ⚠️ Nodemailer error during verification: self-signed certificate in certificate chain[39m
+[31m[2024-04-11T04:55:55.033Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-11T05:29:10.446Z] - level: error - ===> ⚠️ Nodemailer error during verification: Connection closed unexpectedly[39m

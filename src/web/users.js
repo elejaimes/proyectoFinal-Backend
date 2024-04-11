@@ -2,7 +2,7 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { fieldValidator } from "../middlewares/fieldValidator.js";
 import { userController } from "../controllers/indexController.js";
-import { emailExist } from "../helpers/dbValidator.js";
+import { emailExist, userByIdExist } from "../helpers/dbValidator.js";
 
 export const usersWeb = Router();
 
@@ -24,4 +24,14 @@ usersWeb.post(
     fieldValidator,
   ],
   userController.postUser
+);
+
+usersWeb.get(
+  "/users/admin/edit/:id",
+  [
+    check("id", "El ID no es valido").isMongoId(),
+    check("id").custom(userByIdExist),
+    fieldValidator,
+  ],
+  userController.editUser
 );
