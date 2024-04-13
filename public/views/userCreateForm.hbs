@@ -9,26 +9,49 @@
   </ol>
 </nav>
 
-
 <h1 class="container text-center">{{title}}</h1>
 {{>flash}}
 
 <form class="row g-3" action="/users/admin/add" method="POST">
   <div class="col-md-6">
     <label for="name" class="form-label">Nombre</label>
-    <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre del usuario" />
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      placeholder="Ingrese el nombre del usuario"
+    />
   </div>
   <div class="col-md-6">
     <label for="email" class="form-label">Correo Electrónico</label>
-    <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese el correo electrónico del usuario" />
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="form-control"
+      placeholder="Ingrese el correo electrónico del usuario"
+    />
   </div>
   <div class="col-md-6">
     <label for="password" class="form-label">Contraseña</label>
-    <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese la contraseña del usuario" />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="form-control"
+      placeholder="Ingrese la contraseña del usuario"
+    />
   </div>
   <div class="col-md-6">
     <label for="address" class="form-label">Dirección</label>
-    <input type="text" name="address" id="address" class="form-control" placeholder="Ingrese la dirección del usuario" />
+    <input
+      type="text"
+      name="address"
+      id="address"
+      class="form-control"
+      placeholder="Ingrese la dirección del usuario"
+    />
   </div>
   <div class="col-md-6">
     <label for="role" class="form-label">Rol</label>

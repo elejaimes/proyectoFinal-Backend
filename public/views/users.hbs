@@ -10,8 +10,52 @@
 </nav>
 
 <h1 class="mb-4">{{title}}</h1>
+{{>flash}}
 
-<div class="container mt-5">
+<div class="container mt-3">
+
+  <form class="mb-3" action="/users" method="GET">
+    <legend>Filtrar por estado:</legend>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterAll"
+        value=""
+        checked
+      />
+      <label class="form-check-label" for="filterAll">
+        Todos los usuarios
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterActive"
+        value="true"
+      />
+      <label class="form-check-label" for="filterActive">
+        Usuarios Activos
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterInactive"
+        value="false"
+      />
+      <label class="form-check-label" for="filterInactive">
+        Usuarios Inactivos
+      </label>
+    </div>
+    <button type="submit" class="btn btn-secondary">Filtrar</button>
+  </form>
+
   <p>Total de Usuarios: {{totalUsers}}</p>
   <table class="table">
     <thead>
@@ -19,15 +63,17 @@
         <th scope="col">Nombre</th>
         <th scope="col">Email</th>
         <th scope="col">Rol</th>
+        <th scope="col">Estado</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
-    {{#each users}}
-      <tbody>
+    <tbody>
+      {{#each users}}
         <tr>
           <td>{{name}}</td>
           <td>{{email}}</td>
           <td>{{role.role}}</td>
+          <td>{{#if state}}Activo{{else}}Inactivo{{/if}}</td>
           <td>
             <a href="/users/admin/edit/{{_id}}" class="btn btn-secondary">
               <svg
@@ -97,12 +143,15 @@
                   class="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >Cancelar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <a
+                  href="/users/admin/delete/{{_id}}"
+                  class="btn btn-primary"
+                >Eliminar</a>
               </div>
             </div>
           </div>
         </div>
-      </tbody>
-    {{/each}}
+      {{/each}}
+    </tbody>
   </table>
 </div>

@@ -6,10 +6,14 @@ import {
   singupEmailUser,
 } from "../config/nodemailer/template/singupEmail.js";
 
-export const getUsers = async (limit, since) => {
+export const getUsers = async (filterState, limit, since) => {
   try {
-    const allUsers = await userDAO.getUsers(limit, since);
-    return allUsers;
+    const { users, totalUsers } = await userDAO.getUsers(
+      filterState,
+      limit,
+      since
+    );
+    return { users, totalUsers };
   } catch (error) {
     throw new Error(`Error in userService/getUsers: ${error}`);
   }
@@ -45,25 +49,15 @@ export const getUserById = async (id) => {
   }
 };
 
-export const upateUser = async (id, body) => {
+export const updateUser = async (id, body) => {
   try {
-    const { _id, password, role, ...rest } = body;
+    const { _id, password, ...rest } = body;
 
     if (password) {
-      const salt = bcrypt.genSaltSync();
-      rest.password = bcrypt.hashSync(password, salt);
+      throw new Error("Password cannot be updated through this endpoint");
     }
 
-    const user = await userDAO.upateUser(id, rest);
-    return user;
-  } catch (error) {
-    throw new Error(`Error in userService/getUsers: ${error}`);
-  }
-};
-
-export const disableUser = async (id) => {
-  try {
-    const user = await userDAO.disableUser(id);
+    const user = await userDAO.updateUser(id, rest);
     return user;
   } catch (error) {
     throw new Error(`Error in userService/getUsers: ${error}`);
@@ -76,14 +70,5 @@ export const deleteUser = async (id) => {
     return deleteUser;
   } catch (error) {
     throw new Error(error.message);
-  }
-};
-
-export const putUserRoleUpdate = async (id, role) => {
-  try {
-    const roleUpdate = await userDAO.putUserRoleUpdate(id, role);
-    return roleUpdate;
-  } catch (error) {
-    throw new Error(`Error in userService/getUsers: ${error}`);
   }
 };

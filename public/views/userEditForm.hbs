@@ -11,6 +11,7 @@
 
 <h1 class="container text-center">{{title}}</h1>
 {{>flash}}
+
 <form class="row g-3" action="/users/admin/edit/{{editUser._id}}" method="POST">
   <div class="col-md-6">
     <label for="name" class="form-label">Nombre</label>
@@ -35,16 +36,6 @@
     />
   </div>
   <div class="col-md-6">
-    <label for="password" class="form-label">Contraseña</label>
-    <input
-      type="password"
-      name="password"
-      id="password"
-      class="form-control"
-      placeholder="Ingrese la contraseña del usuario"
-    />
-  </div>
-  <div class="col-md-6">
     <label for="address" class="form-label">Dirección</label>
     <input
       type="text"
@@ -63,8 +54,15 @@
       {{/each}}
     </select>
   </div>
+  <div class="col-md-6">
+    <label for="state" class="form-label">Estado</label>
+    <select name="state" id="state" class="form-control">
+      <option value="true" {{editUser.state}}>Activo</option>
+      <option value="false" {{editUser.state}}>Inactivo</option>
+    </select>
+  </div>
   <div class="d-flex justify-content-center">
     <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" />
-    <button type="submit" value="enviar" class="btn btn-primary">Crear Usuario</button>
+    <button type="submit" value="enviar" class="btn btn-primary">Editar Usuario</button>
   </div>
 </form>

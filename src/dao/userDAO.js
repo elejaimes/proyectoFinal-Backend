@@ -1,17 +1,21 @@
 import { UserModel } from "../models/user.js";
 
-export const getUsers = async (limit, since) => {
+export const getUsers = async (filterState, limit, since) => {
   try {
-    const activUser = { state: true };
-    const [users, totalUsers] = await Promise.all([
-      UserModel.find(activUser)
-        .populate("role", "role")
-        .limit(Number(limit))
-        .skip(Number(since))
-        .lean(),
-      UserModel.countDocuments(activUser).exec(),
-    ]);
-    return [users, totalUsers];
+    let filter = {}; // Filtro vacío por defecto para obtener todos los usuarios
+    if (filterState !== undefined && filterState !== "") {
+      filter = { state: filterState }; // Aplicar filtro por estado si se proporciona y no está vacío
+    }
+
+    const users = await UserModel.find(filter)
+      .populate("role", "role")
+      .limit(Number(limit))
+      .skip(Number(since))
+      .lean();
+
+    const totalUsers = await UserModel.countDocuments(filter).exec();
+
+    return { users, totalUsers };
   } catch (error) {
     throw new Error(`Error in userDAO/getUsers: ${error}`);
   }
@@ -36,20 +40,11 @@ export const getUserById = async (id) => {
   }
 };
 
-export const upateUser = async (id, rest) => {
-  try {
-    const user = await UserModel.findByIdAndUpdate(id, rest, { new: true });
-    return user;
-  } catch (error) {
-    throw new Error(`Error in userDAO/getUsers: ${error}`);
-  }
-};
-
-export const disableUser = async (id) => {
+export const updateUser = async (id, rest) => {
   try {
     const user = await UserModel.findByIdAndUpdate(
       id,
-      { state: false },
+      { $set: rest },
       { new: true }
     );
     return user;
@@ -64,16 +59,5 @@ export const deleteUser = async (id) => {
     return deleteUser;
   } catch (error) {
     throw new Error(error.message);
-  }
-};
-
-export const putUserRoleUpdate = async (id, role) => {
-  try {
-    const roleUpdate = await UserModel.findByIdAndUpdate(id, role, {
-      new: true,
-    });
-    return roleUpdate;
-  } catch (error) {
-    throw new Error(`Error in userDAO/getUsers: ${error}`);
   }
 };

@@ -4,14 +4,27 @@ import { logger } from "../config/winston/logger.js";
 //para listar los usuarios (solo por admin)
 export const getUsers = async (req, res) => {
   try {
-    const { limit = 10, since = 0 } = req.query;
+    const { limit = 10, since = 0, filterState } = req.query;
 
-    const [users, totalUsers] = await userService.getUsers(limit, since);
+    let message = "";
+    if (filterState === "true") {
+      message = "Usuarios Activos";
+    } else if (filterState === "false") {
+      message = "Usuarios Inactivos";
+    } else {
+      message = "Todos los usuarios";
+    }
+
+    const { users, totalUsers } = await userService.getUsers(
+      filterState,
+      limit,
+      since
+    );
 
     res.render("users", {
       title: "Listado de Usuarios",
       status: "Ok",
-      message: "Usuarios Activos",
+      message,
       method: req.method,
       totalUsers,
       users,
@@ -23,7 +36,7 @@ export const getUsers = async (req, res) => {
   }
 };
 
-//para crear un usuario (solo por admin)
+//para obtener usuario a crear (solo por admin)
 export const getUsers_add = async (req, res) => {
   try {
     const roles = await roleService.getRoleList();
@@ -38,6 +51,7 @@ export const getUsers_add = async (req, res) => {
   }
 };
 
+//crear un usuario (solo por admin)
 export const postUser = async (req, res) => {
   try {
     const { name, email, password, address, role } = req.body;
@@ -60,6 +74,7 @@ export const postUser = async (req, res) => {
   }
 };
 
+//para obtener usuario a editar (solo por admin)
 export const editUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -78,52 +93,34 @@ export const editUser = async (req, res) => {
   }
 };
 
-export const putUser = async (req, res) => {
+// para editar usuario (solo por admin)
+export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const body = req.body;
+    const { state, ...rest } = req.body;
 
-    const user = await userService.putUser(id, body);
+    const newState = state === "true";
 
-    res.status(200).json({
-      message: "Usuario actualizado correctamente",
-      user,
-    });
+    const user = await userService.updateUser(id, { ...rest, state: newState });
+
+    req.flash("successMessages", "Usuario modificado exitosamente");
+    res.redirect(`/users`);
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
-    return res.redirect("/");
+    return res.redirect("/users");
   }
 };
 
+//para eliminar usuario (solo por admin)
 export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const user = await userService.deleteUser(id);
+    const deleteUser = await userService.deleteUser(id);
 
-    return res.status(200).json({
-      message: "Usuario desactivado de la DB",
-      user,
-    });
-  } catch (error) {
-    logger.error(error.message);
-    req.flash("errorMessages", [{ msg: error.message }]);
-    return res.redirect("/");
-  }
-};
-
-export const putUserRoleUpdate = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const role = req.body;
-
-    const roleUpdate = await userService.putUserRoleUpdate(id, role);
-
-    return res.status(200).json({
-      message: `Usuario actualizado con el role ${role}`,
-      roleUpdate,
-    });
+    req.flash("successMessages", "Usuario eliminado exitosamente");
+    res.redirect(`/users`);
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);

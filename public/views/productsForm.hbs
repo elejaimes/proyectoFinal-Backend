@@ -7,8 +7,8 @@
     <li class="breadcrumb-item"><a
         href="/productos/categorias"
       >Categorías</a></li>
-    <li class="breadcrumb-item"><a
-        href="/productos/todos-los-productos">Todos los productos</a></li>
+    <li class="breadcrumb-item"><a href="/productos/todos-los-productos">Todos
+        los productos</a></li>
     <li class="breadcrumb-item active" aria-current="page">Agregar Productos</li>
   </ol>
 </nav>
@@ -19,13 +19,11 @@
 <form class="row g-3" action="/productos/todos-los-productos/add" method="POST">
   <div class="col-md-6">
     <label for="categoryList" class="form-label">Categoría</label>
-    <select name="categoryList"
-      id="categoryList"
-      class="form-control">
+    <select name="categoryList" id="categoryList" class="form-control">
       {{#each categoryList}}
-      <option value="{{this._id}}">{{this.name}}</option>
+        <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
-      </select>
+    </select>
   </div>
   <div class="col-md-6">
     <label for="name" class="form-label">Nombre</label>

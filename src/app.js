@@ -9,7 +9,11 @@ import connectFlash from "connect-flash";
 // import { attachUser } from "./middlewares/auth.js";
 // import { sessions } from "./middlewares/sessions.js";
 import { create } from "express-handlebars";
-import { formatPrices, shortenDescription } from "./helpers/handlebars.js";
+import {
+  activeFilter,
+  formatPrices,
+  shortenDescription,
+} from "./helpers/handlebars.js";
 import "dotenv/config";
 import { indexWeb } from "./web/index.js";
 import {
@@ -71,6 +75,7 @@ const hbs = create({
   helpers: {
     shortenDescription: shortenDescription,
     formatPrices: formatPrices,
+    activeFilter: activeFilter,
   },
   partialsDir: ["./public/views/components"],
 });

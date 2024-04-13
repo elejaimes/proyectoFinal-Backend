@@ -88,3 +88,77 @@
 [31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
 [31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
 [31m[2024-04-11T05:29:10.446Z] - level: error - ===> ⚠️ Nodemailer error during verification: Connection closed unexpectedly[39m
+[31m[2024-04-12T02:29:52.631Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-12T03:01:20.716Z] - level: error - TypeError: (((intermediate value)(intermediate value) && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:27:117)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-12T03:08:19.330Z] - level: error - TypeError: (((intermediate value)(intermediate value) && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:27:117)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-12T05:51:40.309Z] - level: error - Error in userService/getActiveUsers: TypeError: userDAO.getActiveUsers is not a function[39m
+[31m[2024-04-12T05:51:42.812Z] - level: error - Error in userService/getActiveUsers: TypeError: userDAO.getActiveUsers is not a function[39m
+[31m[2024-04-12T05:51:44.917Z] - level: error - Error in userService/getActiveUsers: TypeError: userDAO.getActiveUsers is not a function[39m
+[31m[2024-04-12T06:03:00.617Z] - level: error - Error: Missing helper: "activeFilter"[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\helper-missing.js:19:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:15:114)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-12T06:03:03.759Z] - level: error - Error: Missing helper: "activeFilter"[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\helper-missing.js:19:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:15:114)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-12T06:03:05.729Z] - level: error - Error: Missing helper: "activeFilter"[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\helper-missing.js:19:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:15:114)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-12T06:19:41.325Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:22:00.880Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "10" (type number) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:22:30.378Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:32:13.456Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:32:26.400Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:32:32.733Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-12T06:32:42.284Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-13T03:54:20.037Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
+[31m[2024-04-13T03:54:56.787Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m

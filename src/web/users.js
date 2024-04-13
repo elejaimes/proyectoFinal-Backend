@@ -35,3 +35,23 @@ usersWeb.get(
   ],
   userController.editUser
 );
+
+usersWeb.post(
+  "/users/admin/edit/:id",
+  [
+    check("name", "El nombre es obligatorio").not().isEmpty(),
+    check("email", "El email no es valido").isEmail(),
+    fieldValidator,
+  ],
+  userController.updateUser
+);
+
+usersWeb.get(
+  "/users/admin/delete/:id",
+  [
+    check("id", "El ID no es valido").isMongoId(),
+    check("id").custom(userByIdExist),
+    fieldValidator,
+  ],
+  userController.deleteUser
+);
