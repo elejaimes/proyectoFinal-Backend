@@ -5,12 +5,3 @@ export const shortenDescription = (description) => {
 export const formatPrices = (price) => {
   return new Intl.NumberFormat().format(price);
 };
-
-export const activeFilter = function (value) {
-  // Lógica para determinar si el filtro está activo
-  if (value) {
-    return "checked"; // Si el valor es verdadero, retorna 'checked'
-  } else {
-    return ""; // Si el valor es falso, retorna una cadena vacía
-  }
-};

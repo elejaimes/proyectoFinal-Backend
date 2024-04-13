@@ -1,20 +1,15 @@
 import express from "express";
-import { connectToDatabase } from "./database/mongodb.js";
-import session from "express-session";
+import "dotenv/config";
+import { getClientPromise } from "./database/mongodb.js";
+// import session from "express-session";
 import csrf from "csurf";
 import { logger } from "./config/winston/logger.js";
 import connectFlash from "connect-flash";
-
-// import { authentication } from "./middlewares/passport.js";
+import sessionMiddleware from "./middlewares/sessions.js";
+import { authentication } from "./middlewares/passport.js";
 // import { attachUser } from "./middlewares/auth.js";
-// import { sessions } from "./middlewares/sessions.js";
 import { create } from "express-handlebars";
-import {
-  activeFilter,
-  formatPrices,
-  shortenDescription,
-} from "./helpers/handlebars.js";
-import "dotenv/config";
+import { formatPrices, shortenDescription } from "./helpers/handlebars.js";
 import { indexWeb } from "./web/index.js";
 import {
   handle500Error,
@@ -27,7 +22,7 @@ import {
 // Conectar a Database
 (async () => {
   try {
-    await connectToDatabase();
+    await getClientPromise();
   } catch (error) {
     console.error("No se pudo conectar a la base de datos:", error);
     process.exit(1);
@@ -37,22 +32,23 @@ import {
 // Configuración del modulo de trabajo express
 export const app = express();
 
-//Configuración de sesiones
-app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false,
-    name: "secret-name",
-    cookie: {
-      expires: new Date(Date.now() + 3600000), // 3600000 milisegundos es 1 hora
-    },
-  })
-);
+//Configuración de sesiones, se comenta porque ahora tenemos un middleware para almacenar la sessión en mongo
+// app.use(
+//   session({
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     name: "secret-name",
+//     cookie: {
+//       expires: new Date(Date.now() + 3600000), // 3600000 milisegundos es 1 hora
+//     },
+//   })
+// );
+app.use(sessionMiddleware);
 
-// // Configuración de passport - middleware de sesiones
-// app.use(sessions);
-// app.use(authentication);
+// Configuración de passport
+
+app.use(authentication);
 // app.use(attachUser);
 
 // Configuración de middleware para manejar archivos estáticos
@@ -75,7 +71,6 @@ const hbs = create({
   helpers: {
     shortenDescription: shortenDescription,
     formatPrices: formatPrices,
-    activeFilter: activeFilter,
   },
   partialsDir: ["./public/views/components"],
 });
