@@ -17,3 +17,14 @@ export const findDefaultUserRole = async () => {
     throw new Error(error.message);
   }
 };
+
+//para consultar el rol
+
+export const checkRole = async (roleName) => {
+  try {
+    const role = await roleDAO.checkRole(roleName);
+    return role;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

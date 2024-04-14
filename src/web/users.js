@@ -3,10 +3,11 @@ import { check } from "express-validator";
 import { fieldValidator } from "../middlewares/fieldValidator.js";
 import { userController } from "../controllers/indexController.js";
 import { emailExist, userByIdExist } from "../helpers/dbValidator.js";
+import { requireRole } from "../middlewares/auth.js";
 
 export const usersWeb = Router();
 
-usersWeb.get("/users", userController.getUsers);
+usersWeb.get("/users", requireRole("admin"), userController.getUsers);
 
 usersWeb.get("/users/admin/add", userController.getUsers_add);
 

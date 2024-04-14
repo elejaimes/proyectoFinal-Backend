@@ -202,7 +202,7 @@ export const postUsers_login = async (req, res, next) => {
         }
         //Guardar usuario en la sesión
         req.session.user = user;
-        console.log(req.session);
+        console.log(req.user);
         req.flash("successMessages", "¡Inicio de sesión exitoso!");
         res.redirect("/");
       });

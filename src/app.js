@@ -96,7 +96,11 @@ app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
   res.locals.errorMessages = req.flash("errorMessages");
   res.locals.successMessages = req.flash("successMessages");
-  res.locals.user = req.session.user;
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
+  } else {
+    res.locals.user = null; // Opcional: si no está autenticado, establece user en null
+  }
   next();
 });
 

@@ -118,7 +118,8 @@ passport.use(
 
 // serializeUser: Convierte el objeto de usuario en una identificación única para almacenar en la sesión
 passport.serializeUser((user, done) => {
-  done(null, user._id);
+  const userId = user._id;
+  done(null, userId);
 });
 
 // deserializeUser: Toma la identificación única y la convierte de nuevo en un objeto de usuario
