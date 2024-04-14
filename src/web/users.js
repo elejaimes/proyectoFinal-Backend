@@ -55,3 +55,40 @@ usersWeb.get(
   ],
   userController.deleteUser
 );
+
+//Registro de usuarios
+
+usersWeb.get("/users/register", userController.getUsers_register);
+
+usersWeb.post(
+  "/users/register",
+  [
+    check("name", "El nombre es obligatorio").not().isEmpty(),
+    check("email", "El email no es valido").isEmail(),
+    check("email").custom(emailExist),
+    check("password", "El password debe contener 8 o mas caracteres ").isLength(
+      {
+        min: 8,
+      }
+    ),
+    fieldValidator,
+  ],
+  userController.postUser_register
+);
+
+//Login de usuarios registrados
+
+usersWeb.get("/users/login", userController.getUsers_login);
+usersWeb.post(
+  "/users/login",
+  [
+    check("email", "Error en el email o contraseña").isEmail(),
+    check("password", "El password debe contener 8 o mas caracteres ").isLength(
+      {
+        min: 8,
+      }
+    ),
+    fieldValidator,
+  ],
+  userController.postUsers_login
+);

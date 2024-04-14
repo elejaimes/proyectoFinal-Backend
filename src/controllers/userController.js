@@ -1,3 +1,4 @@
+import passport from "passport";
 import { roleService, userService } from "../service/indexService.js";
 import { logger } from "../config/winston/logger.js";
 
@@ -127,3 +128,139 @@ export const deleteUser = async (req, res) => {
     return res.redirect("/");
   }
 };
+
+// Registro de usuarios
+
+export const getUsers_register = async (req, res) => {
+  try {
+    return res.render("register", {
+      title: "Registro",
+    });
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/");
+  }
+};
+
+export const postUser_register = async (req, res, next) => {
+  passport.authenticate("register", async (err, user, info) => {
+    try {
+      if (err) {
+        throw new Error(err);
+      }
+      if (!user) {
+        throw new Error(info.message);
+      }
+      req.logIn(user, async (err) => {
+        if (err) {
+          throw new Error(err);
+        }
+        req.flash(
+          "successMessages",
+          "Su registro se ha completado de forma éxitosa"
+        );
+        res.redirect("/users/login");
+      });
+    } catch (error) {
+      req.flash("errorMessages", [{ msg: error.message }]);
+      return res.redirect("/users/register");
+    }
+  })(req, res, next);
+};
+
+// login de usuarios
+
+export const getUsers_login = async (req, res) => {
+  try {
+    return res.render("login", {
+      title: "Iniciar Sesión",
+    });
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/");
+  }
+};
+
+export const postUsers_login = async (req, res, next) => {
+  passport.authenticate("login", async (err, user, info) => {
+    try {
+      if (err) {
+        throw new Error(
+          "Hubo un problema durante el inicio de sesión. Por favor, inténtalo de nuevo más tarde."
+        );
+      }
+      if (!user) {
+        throw new Error(info.message);
+      }
+      req.logIn(user, async (err) => {
+        if (err) {
+          throw new Error(
+            "Hubo un problema durante el inicio de sesión. Por favor, inténtalo de nuevo más tarde."
+          );
+        }
+        console.log(req.user);
+        req.flash("successMessages", "¡Inicio de sesión exitoso!");
+        res.redirect("/");
+      });
+    } catch (error) {
+      req.flash("errorMessages", [{ msg: error.message }]);
+      return res.redirect("/users/login");
+    }
+  })(req, res, next);
+};
+
+//login sin passport
+// export const postUsers_login = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     const user = await userService.findUserByEmail(email);
+//     if (!user) {
+//       throw new Error("Los datos del usuario o contraseña son incorrectos");
+//     }
+//     if (!user.state) {
+//       throw new Error("Los datos del usuario o contraseña son incorrectos");
+//     }
+
+//     const isValidPass = authService.validPass(password, user.password);
+//     if (!isValidPass) {
+//       throw new Error("Los datos del usuario o contraseña son incorrectos");
+//     }
+//     req.flash("successMessages", "Ha iniciado sesión de manera exitosa");
+//     res.redirect("/");
+//   } catch (error) {
+//     req.flash("errorMessages", [{ msg: error.message }]);
+//     return res.redirect("/users/register");
+//   }
+// };
+
+// registro de usuarios rol user predeterminado sin passport
+
+// export const postUser_register = async (req, res) => {
+//   try {
+//     const { name, email, password, address } = req.body;
+
+//     const defaultRole = await roleService.findDefaultUserRole();
+
+//     const newUser = {
+//       name,
+//       email,
+//       password,
+//       address,
+//       role: defaultRole._id,
+//     };
+
+//     const user = await userService.postUser(newUser);
+
+//     req.flash(
+//       "successMessages",
+//       "Su registro se ha completado de forma éxitosa"
+//     );
+//     res.redirect("/users/login");
+//   } catch (error) {
+//     req.flash("errorMessages", [{ msg: error.message }]);
+//     return res.redirect("/users/register");
+//   }
+// };

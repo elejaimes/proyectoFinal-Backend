@@ -21,7 +21,6 @@ export const getUsers = async (filterState, limit, since) => {
 
 export const postUser = async (body) => {
   try {
-    console.log("Entrando a userService.postUser");
     let user = userDTO(body);
 
     const salt = bcrypt.genSaltSync();
