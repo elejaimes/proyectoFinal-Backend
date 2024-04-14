@@ -210,9 +210,23 @@
           </form>
 
           <div class="text-end">
-            <a href="/users/login" class="btn btn-light text-dark me-2">Iniciar
-              Sesión</a>
-            <a href="/users/register" class="btn btn-secondary">Registrarse</a>
+            {{#if user}}
+              <span class="text-dark me-2">Bienvenido,
+                {{user.name}}
+                ({{user.role.role}})
+              </span>
+              <a href="/users/logout" class="btn btn-secondary ms-2">Cerrar
+                Sesión</a>
+            {{else}}
+              <a
+                href="/users/login"
+                class="btn btn-light text-dark me-2"
+              >Iniciar Sesión</a>
+              <a
+                href="/users/register"
+                class="btn btn-secondary"
+              >Registrarse</a>
+            {{/if}}
           </div>
         </div>
       </div>

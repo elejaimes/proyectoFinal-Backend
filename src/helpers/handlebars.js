@@ -1,3 +1,7 @@
+export const getSession = (req) => {
+  return req.session;
+};
+
 export const shortenDescription = (description) => {
   return description.substring(0, 500);
 };

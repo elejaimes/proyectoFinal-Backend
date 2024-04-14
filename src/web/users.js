@@ -92,3 +92,5 @@ usersWeb.post(
   ],
   userController.postUsers_login
 );
+
+usersWeb.get("/users/logout", userController.logoutUser);

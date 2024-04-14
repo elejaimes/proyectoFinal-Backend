@@ -200,7 +200,9 @@ export const postUsers_login = async (req, res, next) => {
             "Hubo un problema durante el inicio de sesión. Por favor, inténtalo de nuevo más tarde."
           );
         }
-        console.log(req.user);
+        //Guardar usuario en la sesión
+        req.session.user = user;
+        console.log(req.session);
         req.flash("successMessages", "¡Inicio de sesión exitoso!");
         res.redirect("/");
       });
@@ -209,6 +211,18 @@ export const postUsers_login = async (req, res, next) => {
       return res.redirect("/users/login");
     }
   })(req, res, next);
+};
+
+// logout de usuarios
+
+export const logoutUser = (req, res) => {
+  req.logout((error) => {
+    if (error) {
+      console.error("Error al cerrar sesión: ", error);
+    }
+    req.flash("successMessages", "Logout OK");
+    res.redirect("/");
+  });
 };
 
 //login sin passport

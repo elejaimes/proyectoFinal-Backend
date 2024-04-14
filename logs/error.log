@@ -164,3 +164,64 @@
 [31m[2024-04-13T03:54:56.787Z] - level: error - Error in userService/getUsers: Error: Error in userDAO/getUsers: CastError: Cast to Boolean failed for value "" (type string) at path "state" for model "Users"[39m
 [31m[2024-04-13T21:08:40.975Z] - level: error - ===> ⚠️ Nodemailer error during verification: Connection closed unexpectedly[39m
 [31m[2024-04-14T01:47:58.628Z] - level: error - ===> ⚠️ Nodemailer error during verification: getaddrinfo ENOTFOUND sandbox.smtp.mailtrap.io[39m
+[31m[2024-04-14T06:03:37.876Z] - level: error - TypeError: req.session.user is not a function[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:99:33[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-14T06:05:23.066Z] - level: error - TypeError: (lookupProperty(...) || (depth0 && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:13:143)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-14T06:05:25.234Z] - level: error - TypeError: (lookupProperty(...) || (depth0 && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:13:143)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-14T06:05:30.191Z] - level: error - TypeError: (lookupProperty(...) || (depth0 && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:13:143)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-14T06:06:30.843Z] - level: error - TypeError: (lookupProperty(...) || (depth0 && lookupProperty(...)) || alias2).call is not a function[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:13:143)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-14T06:24:36.280Z] - level: error - Error: req#logout requires a callback function[39m
+[31m    at req.logout.req.logOut (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\passport\lib\http\request.js:65:44)[39m
+[31m    at logoutUser (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/controllers/userController.js:219:7)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\route.js:149:13)[39m
+[31m    at Route.dispatch (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\route.js:119:3)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:284:15[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Function.handle (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:175:3)[39m
+[31m[2024-04-14T06:28:18.956Z] - level: error - Error: Unable to find the session to touch[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\connect-mongo\build\main\lib\MongoStore.js:329:37[39m
+[31m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m

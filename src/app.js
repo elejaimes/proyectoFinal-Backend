@@ -9,7 +9,11 @@ import sessionMiddleware from "./middlewares/sessions.js";
 import { authentication } from "./middlewares/passport.js";
 // import { attachUser } from "./middlewares/auth.js";
 import { create } from "express-handlebars";
-import { formatPrices, shortenDescription } from "./helpers/handlebars.js";
+import {
+  formatPrices,
+  getSession,
+  shortenDescription,
+} from "./helpers/handlebars.js";
 import { indexWeb } from "./web/index.js";
 import {
   handle500Error,
@@ -69,8 +73,9 @@ const hbs = create({
   extname: ".hbs",
   defaultLayout: "frontend",
   helpers: {
-    shortenDescription: shortenDescription,
-    formatPrices: formatPrices,
+    shortenDescription,
+    formatPrices,
+    getSession,
   },
   partialsDir: ["./public/views/components"],
 });
@@ -91,11 +96,7 @@ app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
   res.locals.errorMessages = req.flash("errorMessages");
   res.locals.successMessages = req.flash("successMessages");
-
-  // if (req.isAuthenticated()) {
-  //   res.locals.user_id = req.user.id;
-  //   res.locals.user_name = req.user.name;
-  // }
+  res.locals.user = req.session.user;
   next();
 });
 
