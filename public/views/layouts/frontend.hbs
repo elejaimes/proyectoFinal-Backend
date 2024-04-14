@@ -211,12 +211,40 @@
 
           <div class="text-end">
             {{#if user}}
-              <span class="text-dark me-2">Bienvenido,
-                {{user.name}}
-                {{user.role}}
-              </span>
-              <a href="/users/logout" class="btn btn-secondary ms-2">Cerrar
-                Sesión</a>
+              <div class="dropdown">
+                <span class="text-dark" style="font-weight: bold;">
+                  Bienvenido,
+                  {{user.name}}
+                  <button
+                    class="btn btn-link text-decoration-none dropdown-toggle text-dark"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-chevron-down text-dark"></i>
+                    <!-- Icono de flecha hacia abajo -->
+                  </button>
+                  <ul
+                    class="dropdown-menu dropdown-menu-lg"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <li>
+                      <span class="dropdown-item-text" style="font-size: 16px;">
+                        Tipo de cuenta:
+                        {{user.role.role}}
+                      </span>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a
+                        class="dropdown-item"
+                        href="/users/editData/{{user._id}}"
+                      >Editar Perfil</a></li>
+                    <li><a class="dropdown-item" href="/users/logout">Cerrar
+                        Sesión</a></li>
+                  </ul>
+                </span>
+              </div>
             {{else}}
               <a
                 href="/users/login"

@@ -1,0 +1,67 @@
+<nav
+  style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&quot;);"
+  aria-label="breadcrumb"
+>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+  </ol>
+</nav>
+
+<h1 class="container text-center">{{title}}</h1>
+{{>flash}}
+
+<form
+  class="container"
+  style="max-width: 500px;"
+  action="/users/editData/{{user._id}}"
+  method="POST"
+>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      placeholder="Ingrese su nombre"
+      value="{{editData.name}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo Electrónico</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="form-control"
+      placeholder="Ingrese su correo electrónico"
+      value="{{editData.email}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="form-control"
+      placeholder="Ingrese su contraseña"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Dirección</label>
+    <input
+      type="text"
+      name="address"
+      id="address"
+      class="form-control"
+      placeholder="Ingrese su dirección"
+      value="{{editData.address}}"
+    />
+  </div>
+  <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" />
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-secondary">Modificar datos</button>
+  </div>
+</form>

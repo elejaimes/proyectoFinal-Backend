@@ -7,6 +7,7 @@ import { logger } from "./config/winston/logger.js";
 import connectFlash from "connect-flash";
 import sessionMiddleware from "./middlewares/sessions.js";
 import { authentication } from "./middlewares/passport.js";
+import { localVariables } from "./middlewares/localVariables.js";
 // import { attachUser } from "./middlewares/auth.js";
 import { create } from "express-handlebars";
 import {
@@ -36,7 +37,7 @@ import {
 // Configuración del modulo de trabajo express
 export const app = express();
 
-//Configuración de sesiones, se comenta porque ahora tenemos un middleware para almacenar la sessión en mongo
+//Configuración de sesiones, se comenta porque ahora tenemos un middleware para almacenar la sessión en mongoDB
 // app.use(
 //   session({
 //     secret: process.env.SECRET,
@@ -48,6 +49,7 @@ export const app = express();
 //     },
 //   })
 // );
+
 app.use(sessionMiddleware);
 
 // Configuración de passport
@@ -92,17 +94,7 @@ app.use(handleNotFoundError);
 app.use(handle500Error);
 
 // //variables locales
-app.use((req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
-  res.locals.errorMessages = req.flash("errorMessages");
-  res.locals.successMessages = req.flash("successMessages");
-  if (req.isAuthenticated()) {
-    res.locals.user = req.user;
-  } else {
-    res.locals.user = null; // Opcional: si no está autenticado, establece user en null
-  }
-  next();
-});
+app.use(localVariables);
 
 // Configuración de las rutas
 app.use("/", indexWeb);

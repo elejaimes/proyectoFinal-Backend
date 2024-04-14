@@ -31,7 +31,7 @@ export const getProducts = async (req, res) => {
 export const getProducts_add = async (req, res) => {
   try {
     const categoryList = await categoryService.getCategoryList();
-    return res.render("productsForm", {
+    return res.render("adminPanel_createProducts", {
       title: "Crear producto",
       categoryList,
     });
@@ -92,7 +92,7 @@ export const editProduct = async (req, res) => {
     const editProduct = await productService.editProduct(id);
     const categoryList = await categoryService.getCategoryList();
 
-    return res.render("productEditForm", {
+    return res.render("adminPanel_editProduct", {
       title: "Editar producto",
       editProduct,
       categoryList,

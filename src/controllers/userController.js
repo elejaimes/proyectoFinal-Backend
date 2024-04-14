@@ -41,7 +41,7 @@ export const getUsers = async (req, res) => {
 export const getUsers_add = async (req, res) => {
   try {
     const roles = await roleService.getRoleList();
-    return res.render("userCreateForm", {
+    return res.render("adminPanel_createUser", {
       title: "Crear usuario",
       roles,
     });
@@ -82,7 +82,7 @@ export const editUser = async (req, res) => {
     const editUser = await userService.getUserById(id);
     const roles = await roleService.getRoleList();
 
-    return res.render("userEditForm", {
+    return res.render("adminPanel_editUser", {
       title: "Editar usuario",
       editUser,
       roles,
@@ -223,6 +223,42 @@ export const logoutUser = (req, res) => {
     req.flash("successMessages", "Logout OK");
     res.redirect("/");
   });
+};
+
+//Modificar datos del usuario logeado
+
+//para obtener usuario a editar
+export const editData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const editData = await userService.getUserById(id);
+
+    return res.render("userPanel_editUser", {
+      title: "Editar Perfil",
+      editData,
+    });
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/");
+  }
+};
+
+// para editar usuario
+export const updateData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { password, ...rest } = req.body;
+
+    const user = await userService.updateUserAndPassword(id, req.body);
+
+    req.flash("successMessages", "Perfil modificado exitosamente");
+    res.redirect(`/`);
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/");
+  }
 };
 
 //login sin passport

@@ -63,6 +63,22 @@ export const updateUser = async (id, body) => {
   }
 };
 
+export const updateUserAndPassword = async (id, body) => {
+  try {
+    let user = userDTO(body);
+
+    if (body.password) {
+      const salt = bcrypt.genSaltSync();
+      user.password = bcrypt.hashSync(body.password, salt);
+    }
+
+    const editUser = await userDAO.updateUser(id, user);
+    return editUser;
+  } catch (error) {
+    throw new Error(`Error in userService/updateUserAndPassword: ${error}`);
+  }
+};
+
 export const deleteUser = async (id) => {
   try {
     const deleteUser = await userDAO.deleteUser(id);

@@ -32,7 +32,9 @@ export const getCategories = async (req, res) => {
 
 export const getCategories_add = (req, res) => {
   try {
-    return res.render("categoryForm", { title: "Crear categoría" });
+    return res.render("adminPanel_createCategory", {
+      title: "Crear categoría",
+    });
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
@@ -75,7 +77,7 @@ export const editCategory = async (req, res) => {
 
     const editCategory = await categoryService.categoryById(id);
 
-    return res.render("categoryFormEdit", {
+    return res.render("adminPanel_editCategory", {
       title: "Editar categoría",
       editCategory,
     });

@@ -271,3 +271,52 @@
 [31m    at router (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:47:12)[39m
 [31m[2024-04-14T16:33:33.337Z] - level: error - ===> ⚠️ Nodemailer error during verification: Connection closed unexpectedly[39m
 [31m[2024-04-14T16:47:24.794Z] - level: error - ===> ⚠️ Nodemailer error during verification: Connection closed unexpectedly[39m
+[31m[2024-04-14T17:23:21.400Z] - level: error - Error: Parse error on line 216:[39m
+[31m...        {{user.role.'role'}}[39m
+[31m          [39m
+[31m-----------------------^[39m
+[31mExpecting 'ID', got 'STRING'[39m
+[31m    at Parser.parseError (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)[39m
+[31m    at Parser.parse (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)[39m
+[31m    at parseWithoutProcessing (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:33)[39m
+[31m    at HandlebarsEnvironment.parse (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:52:13)[39m
+[31m    at compileInput (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:508:19)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:517:18)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-14T17:43:01.980Z] - level: error - ReferenceError: findUserByEmail is not defined[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:101:20[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-14T17:43:12.306Z] - level: error - ReferenceError: findUserByEmail is not defined[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:101:20[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-14T17:43:15.625Z] - level: error - ReferenceError: findUserByEmail is not defined[39m
+[31m    at file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/app.js:101:20[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-14T20:11:52.554Z] - level: error - Error in userService/updateUserAndPassword: Error: Illegal arguments: undefined, string[39m
