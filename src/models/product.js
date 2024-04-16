@@ -5,7 +5,7 @@ import slug from "slug";
 const collection = "Products";
 
 // Define el esquema de los productos
-const productSchema = new Schema(
+export const productSchema = new Schema(
   {
     name: {
       type: String,

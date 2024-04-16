@@ -23,7 +23,9 @@
         name="filterState"
         id="filterAll"
         value=""
-        checked
+        {{#if filterAllChecked}}
+          checked
+        {{/if}}
       />
       <label class="form-check-label" for="filterAll">
         Todos los usuarios
@@ -36,6 +38,9 @@
         name="filterState"
         id="filterActive"
         value="true"
+        {{#if filterActiveChecked}}
+          checked
+        {{/if}}
       />
       <label class="form-check-label" for="filterActive">
         Usuarios Activos
@@ -48,6 +53,9 @@
         name="filterState"
         id="filterInactive"
         value="false"
+        {{#if filterInactiveChecked}}
+          checked
+        {{/if}}
       />
       <label class="form-check-label" for="filterInactive">
         Usuarios Inactivos

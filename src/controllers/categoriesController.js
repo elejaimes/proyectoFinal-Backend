@@ -15,7 +15,7 @@ export const getCategories = async (req, res) => {
 
     console.log(totalCategories);
 
-    return res.render("categories", {
+    return res.render("adminPanel_categories", {
       title: "Categorías",
       status: "Ok",
       message: "Categorias Activas",

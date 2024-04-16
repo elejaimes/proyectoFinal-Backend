@@ -1,9 +1,13 @@
 import { productDAO } from "../dao/indexDAO.js";
 
-export const getAllProducts = async (limit, since) => {
+export const getAllProducts = async (filterState, limit, since) => {
   try {
-    const allProducts = await productDAO.getAllProducts(limit, since);
-    return allProducts;
+    const { products, totalProducts } = await productDAO.getAllProducts(
+      filterState,
+      limit,
+      since
+    );
+    return { products, totalProducts };
   } catch (error) {
     throw new Error(error.message);
   }

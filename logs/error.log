@@ -320,3 +320,5 @@
 [31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
 [31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
 [31m[2024-04-14T20:11:52.554Z] - level: error - Error in userService/updateUserAndPassword: Error: Illegal arguments: undefined, string[39m
+[31m[2024-04-15T04:13:34.230Z] - level: error - ===> ⚠️ Nodemailer error during verification: getaddrinfo ENOTFOUND sandbox.smtp.mailtrap.io[39m
+[31m[2024-04-16T01:34:17.365Z] - level: error - Error in cartService/getAllCarts: Error in cartDAO/getAllCarts: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.[39m

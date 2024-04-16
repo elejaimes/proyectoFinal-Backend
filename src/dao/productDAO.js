@@ -1,19 +1,21 @@
 import { ProductModel } from "../models/product.js";
 
-export const getAllProducts = async (limit, since) => {
+export const getAllProducts = async (filterState, limit, since) => {
   try {
-    const activProduct = { state: true };
-    const [products, totalProducts] = await Promise.all([
-      ProductModel.find(activProduct)
-        .populate("category", "name")
-        .limit(Number(limit))
-        .skip(Number(since))
-        .sort({ name: 1 })
-        .lean(),
-      ProductModel.countDocuments(activProduct),
-    ]);
+    let filter = {}; // Filtro vacío por defecto para obtener todos los productos
+    if (filterState !== undefined && filterState !== "") {
+      filter = { state: filterState }; // Aplicar filtro por estado si se proporciona y no está vacío
+    }
+    const products = await ProductModel.find(filter)
+      .populate("category", "name")
+      .limit(Number(limit))
+      .skip(Number(since))
+      .sort({ name: 1 })
+      .lean();
 
-    return [products, totalProducts];
+    const totalProducts = await ProductModel.countDocuments(filter).exec();
+
+    return { products, totalProducts };
   } catch (error) {
     throw new Error(error.message);
   }
@@ -56,11 +58,13 @@ export const editProduct = async (id) => {
   }
 };
 
-export const updateProduct_post = async (id, body) => {
+export const updateProduct_post = async (id, rest) => {
   try {
-    const updateProduct_post = await ProductModel.findByIdAndUpdate(id, body, {
-      new: true,
-    });
+    const updateProduct_post = await ProductModel.findByIdAndUpdate(
+      id,
+      { $set: rest },
+      { new: true }
+    );
     return updateProduct_post;
   } catch (error) {
     throw new Error(error.message);

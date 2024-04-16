@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { productSchema } from "./product.js";
 
 //Nombre de la colección
 const collection = "Carts";
@@ -7,7 +8,7 @@ const collection = "Carts";
 const cartSchema = new Schema(
   {
     products: {
-      type: Array,
+      type: [productSchema],
       required: true,
       default: [],
     },
@@ -27,10 +28,5 @@ const cartSchema = new Schema(
   },
   { timestamps: true, versionKey: false }
 );
-
-cartSchema.pre("save", function (next) {
-  this.slug = slugify(this._id.toString());
-  next();
-});
 
 export const CartModel = model(collection, cartSchema);

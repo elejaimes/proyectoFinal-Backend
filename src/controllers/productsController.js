@@ -5,21 +5,41 @@ import { productDTO } from "../dto/productDTO.js";
 
 export const getProducts = async (req, res) => {
   try {
-    const { limit = 10, since = 0 } = req.query;
+    const { limit = 10, since = 0, filterState } = req.query;
 
-    const [products, totalProducts] = await productService.getAllProducts(
+    let message = "";
+    let filterAllChecked = "";
+    let filterActiveChecked = "";
+    let filterInactiveChecked = "";
+
+    if (filterState === "") {
+      message = "Todos los productos";
+      filterAllChecked = "checked";
+    } else if (filterState === "true") {
+      message = "Productos Activos";
+      filterActiveChecked = "checked";
+    } else if (filterState === "false") {
+      message = "Productos Inactivos";
+      filterInactiveChecked = "checked";
+    }
+
+    const { products, totalProducts } = await productService.getAllProducts(
+      filterState,
       limit,
       since
     );
-    console.log(products);
 
-    return res.render("products", {
-      title: "Todos Los Productos",
+    return res.render("adminPanel_products", {
+      title: "Productos",
       status: "Ok",
-      message: "Productos Activos",
+      message,
       method: req.method,
       totalProducts,
       products,
+      filterState,
+      filterAllChecked,
+      filterActiveChecked,
+      filterInactiveChecked,
     });
   } catch (error) {
     logger.error(error.message);
@@ -77,7 +97,7 @@ export const getProductById = async (req, res) => {
   const productId = req.params.id;
   try {
     const productDetails = await productService.getProductById(productId);
-    res.render("products", { productDetails });
+    res.render("adminPanel_products", { productDetails });
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
@@ -107,7 +127,7 @@ export const editProduct = async (req, res) => {
 export const updateProduct_post = async (req, res) => {
   try {
     const { id } = req.params;
-    const { category, name, price, description, stock } = req.body;
+    const { category, name, price, description, stock, state } = req.body;
 
     const updateProduct = await productService.updateProduct_post(id, {
       category,
@@ -115,13 +135,14 @@ export const updateProduct_post = async (req, res) => {
       price,
       description,
       stock,
+      state,
     });
     req.flash("successMessages", "Producto modificado exitosamente");
-    res.redirect(`/productos/todos-los-productos/edit/${id}`);
+    res.redirect("/productos/todos-los-productos");
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
-    return res.redirect("/productos/todos-los-productos");
+    return res.redirect(`/productos/todos-los-productos/edit/${id}`);
   }
 };
 
@@ -157,13 +178,14 @@ export const getProductByCategory = async (req, res) => {
       since
     );
 
-    return res.render("products", {
+    return res.render("adminPanel_products", {
       title: `Productos por la categoría: ${categoryById.name}`,
       status: "Ok",
       message: "Productos Activos",
       method: req.method,
       totalProducts,
       products,
+      filterState,
     });
   } catch (error) {
     logger.error(error.message);

@@ -4,6 +4,7 @@ import { formWeb } from "./form.js";
 import { productsWeb } from "./products.js";
 import { categoriesWeb } from "./categories.js";
 import { usersWeb } from "./users.js";
+import { cartsWeb } from "./carts.js";
 
 export const indexWeb = Router();
 
@@ -12,3 +13,4 @@ indexWeb.use(formWeb);
 indexWeb.use(categoriesWeb);
 indexWeb.use(productsWeb);
 indexWeb.use(usersWeb);
+indexWeb.use(cartsWeb);

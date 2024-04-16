@@ -10,11 +10,57 @@
     <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
     <li class="breadcrumb-item"><a
         href="/productos/todos-los-productos/add"
-      >Agregar Productos</a></li>
+      >Crear Productos</a></li>
   </ol>
 </nav>
 
 <h1>{{title}}</h1>
+
+<div class="container mt-3">
+  <form class="mb-3" action="/productos/todos-los-productos" method="GET">
+    <legend>Filtrar por estado:</legend>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterAll"
+        value=""
+        {{#if filterAllChecked}}checked{{/if}}
+      />
+      <label class="form-check-label" for="filterAll">
+        Todos los productos
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterActive"
+        value="true"
+        {{#if filterActiveChecked}}checked{{/if}}
+      />
+      <label class="form-check-label" for="filterActive">
+        Productos Activos
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filterState"
+        id="filterInactive"
+        value="false"
+        {{#if filterInactiveChecked}}checked{{/if}}
+      />
+      <label class="form-check-label" for="filterInactive">
+        Productos Inactivos
+      </label>
+    </div>
+    <button type="submit" class="btn btn-secondary">Filtrar</button>
+  </form>
+</div>
 
 <!-- Cards de productos -->
 {{>flash}}

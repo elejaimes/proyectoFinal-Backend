@@ -1,5 +1,9 @@
 import passport from "passport";
-import { roleService, userService } from "../service/indexService.js";
+import {
+  cartService,
+  roleService,
+  userService,
+} from "../service/indexService.js";
 import { logger } from "../config/winston/logger.js";
 
 //para listar los usuarios (solo por admin)
@@ -8,12 +12,19 @@ export const getUsers = async (req, res) => {
     const { limit = 10, since = 0, filterState } = req.query;
 
     let message = "";
-    if (filterState === "true") {
+    let filterAllChecked = "";
+    let filterActiveChecked = "";
+    let filterInactiveChecked = "";
+
+    if (filterState === "") {
+      message = "Todos los usuarios";
+      filterAllChecked = "checked";
+    } else if (filterState === "true") {
       message = "Usuarios Activos";
+      filterActiveChecked = "checked";
     } else if (filterState === "false") {
       message = "Usuarios Inactivos";
-    } else {
-      message = "Todos los usuarios";
+      filterInactiveChecked = "checked";
     }
 
     const { users, totalUsers } = await userService.getUsers(
@@ -22,13 +33,17 @@ export const getUsers = async (req, res) => {
       since
     );
 
-    res.render("users", {
+    res.render("adminPanel_users", {
       title: "Listado de Usuarios",
       status: "Ok",
       message,
       method: req.method,
       totalUsers,
       users,
+      filterState,
+      filterAllChecked,
+      filterActiveChecked,
+      filterInactiveChecked,
     });
   } catch (error) {
     logger.error(error.message);
@@ -152,15 +167,26 @@ export const postUser_register = async (req, res, next) => {
       if (!user) {
         throw new Error(info.message);
       }
+
+      //Crear carrito para ususario registrado
+      const cart = await cartService.createUserCart(user._id);
+
+      // Asociar el carrito creado con el usuario registrado
+      const associateUserWithCart = await cartService.associateUserCart(
+        user._id,
+        cart._id
+      );
+
       req.logIn(user, async (err) => {
         if (err) {
           throw new Error(err);
         }
+
         req.flash(
           "successMessages",
           "Su registro se ha completado de forma éxitosa"
         );
-        res.redirect("/users/login");
+        res.redirect("/");
       });
     } catch (error) {
       req.flash("errorMessages", [{ msg: error.message }]);
@@ -194,6 +220,9 @@ export const postUsers_login = async (req, res, next) => {
       if (!user) {
         throw new Error(info.message);
       }
+
+      const cart = await cartService.findCartByUserId(user._id);
+
       req.logIn(user, async (err) => {
         if (err) {
           throw new Error(
@@ -260,57 +289,3 @@ export const updateData = async (req, res) => {
     return res.redirect("/");
   }
 };
-
-//login sin passport
-// export const postUsers_login = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
-
-//     const user = await userService.findUserByEmail(email);
-//     if (!user) {
-//       throw new Error("Los datos del usuario o contraseña son incorrectos");
-//     }
-//     if (!user.state) {
-//       throw new Error("Los datos del usuario o contraseña son incorrectos");
-//     }
-
-//     const isValidPass = authService.validPass(password, user.password);
-//     if (!isValidPass) {
-//       throw new Error("Los datos del usuario o contraseña son incorrectos");
-//     }
-//     req.flash("successMessages", "Ha iniciado sesión de manera exitosa");
-//     res.redirect("/");
-//   } catch (error) {
-//     req.flash("errorMessages", [{ msg: error.message }]);
-//     return res.redirect("/users/register");
-//   }
-// };
-
-// registro de usuarios rol user predeterminado sin passport
-
-// export const postUser_register = async (req, res) => {
-//   try {
-//     const { name, email, password, address } = req.body;
-
-//     const defaultRole = await roleService.findDefaultUserRole();
-
-//     const newUser = {
-//       name,
-//       email,
-//       password,
-//       address,
-//       role: defaultRole._id,
-//     };
-
-//     const user = await userService.postUser(newUser);
-
-//     req.flash(
-//       "successMessages",
-//       "Su registro se ha completado de forma éxitosa"
-//     );
-//     res.redirect("/users/login");
-//   } catch (error) {
-//     req.flash("errorMessages", [{ msg: error.message }]);
-//     return res.redirect("/users/register");
-//   }
-// };
