@@ -1,71 +1,27 @@
 import { Router } from "express";
-// import { body, check } from "express-validator";
-// import { fieldValidator } from "../middlewares/fieldValidator.js";
 import { cartController } from "../controllers/indexController.js";
+import { cartByIdExist } from "../helpers/dbValidator.js";
+import { fieldValidator } from "../middlewares/fieldValidator.js";
+import { check } from "express-validator";
+import { requireRole } from "../middlewares/auth.js";
 
 export const cartsWeb = Router();
 
-cartsWeb.get("/carts", cartController.getAllCarts);
+cartsWeb.get("/carts", requireRole("admin"), cartController.getAllCarts);
 
-// cartsWeb.get(
-//   "/productos/todos-los-productos/add",
-//   productController.getProducts_add
-// );
+cartsWeb.get(
+  "/carts/detail/:id",
+  requireRole("admin"),
+  cartController.cartDetail
+);
 
-// cartsWeb.get("/productos/detalles/:id", productController.getProductById);
-
-// cartsWeb.post(
-//   "/productos/todos-los-productos/add",
-//   [
-//     body("name", "El nombre es obligatorio").trim().notEmpty().escape(),
-//     body("price", "El precio es obligatorio").isNumeric().notEmpty(),
-//     body("description", "La descripcción es obligatoria")
-//       .trim()
-//       .notEmpty()
-//       .escape(),
-//     fieldValidator,
-//   ],
-//   productController.postProducts
-// );
-
-// cartsWeb.get(
-//   "/productos/todos-los-productos/edit/:id",
-//   [
-//     check("id", "El ID no es valido").isMongoId(),
-//     check("id").custom(productByIdExist),
-//     fieldValidator,
-//   ],
-//   productController.editProduct
-// );
-
-// cartsWeb.post(
-//   "/productos/todos-los-productos/edit/:id",
-//   [
-//     check("id", "El ID no es valido").isMongoId(),
-//     check("id").custom(productByIdExist),
-//     body("name", "El nombre es obligatorio").trim().notEmpty().escape(),
-//     body("price", "El precio es obligatorio").isNumeric().notEmpty(),
-//     body("description", "La descripcción es obligatoria")
-//       .trim()
-//       .notEmpty()
-//       .escape(),
-//     fieldValidator,
-//   ],
-//   productController.updateProduct_post
-// );
-
-// cartsWeb.get(
-//   "/productos/todos-los-productos/delete/:id",
-//   [
-//     check("id", "El ID no es valido").isMongoId(),
-//     check("id").custom(productByIdExist),
-//     fieldValidator,
-//   ],
-//   productController.deleteProduct
-// );
-
-// cartsWeb.get(
-//   "/productos/productos-por-categorias/:id",
-//   fieldValidator,
-//   productController.getProductByCategory
-// );
+cartsWeb.get(
+  "/carts/delete/:id",
+  [
+    check("id", "El ID no es valido").isMongoId(),
+    check("id").custom(cartByIdExist),
+    fieldValidator,
+  ],
+  requireRole("admin"),
+  cartController.deleteCart
+);

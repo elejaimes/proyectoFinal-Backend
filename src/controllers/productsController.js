@@ -160,7 +160,6 @@ export const deleteProduct = async (req, res) => {
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
-    console.error(error.message);
     return res.redirect("/productos/todos-los-productos");
   }
 };

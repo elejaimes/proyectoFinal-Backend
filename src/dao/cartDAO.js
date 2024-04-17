@@ -28,9 +28,12 @@ export const getAllCarts = async (filterState, limit, since) => {
   }
 };
 
-export const findCartById = async (cartId) => {
+export const findCartById = async (id) => {
   try {
-    const cart = await CartModel.findById(cartId).populate("products").lean();
+    const cart = await CartModel.findById(id)
+      .populate("products")
+      .populate("user")
+      .lean();
     return cart;
   } catch (error) {
     throw new Error(`Error in cartDAO/findCartById: ${error.message}`);
@@ -57,9 +60,10 @@ export const createCart = async (userId) => {
   }
 };
 
-export const deleteCart = async (cartId) => {
+export const deleteCart = async (id) => {
   try {
-    await CartModel.findByIdAndDelete(cartId);
+    const deletedCart = await CartModel.findByIdAndDelete({ _id: id });
+    return deletedCart;
   } catch (error) {
     throw new Error(`Error in cartDAO/deleteCart: ${error.message}`);
   }

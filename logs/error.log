@@ -322,3 +322,9 @@
 [31m[2024-04-14T20:11:52.554Z] - level: error - Error in userService/updateUserAndPassword: Error: Illegal arguments: undefined, string[39m
 [31m[2024-04-15T04:13:34.230Z] - level: error - ===> ⚠️ Nodemailer error during verification: getaddrinfo ENOTFOUND sandbox.smtp.mailtrap.io[39m
 [31m[2024-04-16T01:34:17.365Z] - level: error - Error in cartService/getAllCarts: Error in cartDAO/getAllCarts: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.[39m
+[31m[2024-04-17T04:18:33.472Z] - level: error - error is not defined[39m
+[31m[2024-04-17T04:20:25.495Z] - level: error - error is not defined[39m
+[31m[2024-04-17T04:22:52.620Z] - level: error - Error desconocido: El carrito no pudo ser eliminado[39m
+[31m[2024-04-17T04:28:58.502Z] - level: error - El carrito no pudo ser eliminado[39m
+[31m[2024-04-17T04:32:55.178Z] - level: error - El carrito no pudo ser eliminado[39m
+[31m[2024-04-17T04:35:41.341Z] - level: error - Error in cartService/deleteCart: Error in cartDAO/deleteCart: Cast to ObjectId failed for value "{ _id: undefined }" (type Object) at path "_id" for model "Carts"[39m

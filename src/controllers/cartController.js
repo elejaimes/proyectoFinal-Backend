@@ -46,55 +46,42 @@ export const getAllCarts = async (req, res) => {
   }
 };
 
-// // Buscar Carrito por ID
-// export const getCartById = async (req, res) => {
-//   try {
-//     const { cartId } = req.params;
-//     const cart = await cartService.findCartById(cartId);
-//     if (!cart) {
-//       return res.status(404).json({ message: "Cart not found" });
-//     }
-//     res.status(200).json(cart);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+//Ver detalle de carrito
 
-// // Buscar Carrito por ID de Usuario
-// export const getCartByUserId = async (req, res) => {
-//   try {
-//     const { userId } = req.params;
-//     const cart = await cartService.findCartByUserId(userId);
-//     if (!cart) {
-//       return res.status(404).json({ message: "Cart not found" });
-//     }
-//     res.status(200).json(cart);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+export const cartDetail = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-// // Crear Carrito
-// export const createCart = async (req, res) => {
-//   try {
-//     const { userId } = req.body; // Suponiendo que el ID del usuario se pasa en el cuerpo de la solicitud
-//     const newCart = await cartService.createCart(userId);
-//     res.status(201).json(newCart);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+    const cartDetail = await cartService.findCartById(id);
 
-// // Borrar Carrito completamente
-// export const deleteCart = async (req, res) => {
-//   try {
-//     const { cartId } = req.params;
-//     await cartService.deleteCart(cartId);
-//     res.status(204).end();
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+    return res.render("adminPanel_carts", {
+      title: `Carrito de ${user.name}`,
+      cartDetail,
+    });
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/productos/categorias");
+  }
+};
+
+// Borrar Carrito completamente por el admin
+export const deleteCart = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const deleteCart = await cartService.deleteCart(id);
+    if (!deleteCart) {
+      throw new Error("El carrito no pudo ser eliminado", error.message);
+    }
+    req.flash("successMessages", "Carrito eliminado exitosamente");
+    res.redirect(`/carts`);
+  } catch (error) {
+    logger.error(error.message);
+    req.flash("errorMessages", [{ msg: error.message }]);
+    return res.redirect("/carts");
+  }
+};
 
 // // Agregar Producto al Carrito
 // export const addProductsToCart = async (req, res) => {
