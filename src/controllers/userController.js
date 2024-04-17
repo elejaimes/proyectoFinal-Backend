@@ -221,7 +221,13 @@ export const postUsers_login = async (req, res, next) => {
         throw new Error(info.message);
       }
 
-      const cart = await cartService.findCartByUserId(user._id);
+      // Buscar el carrito del usuario
+      let cart = await cartService.findCartByUserId(user._id);
+
+      // Si el carrito no existe, crear uno nuevo y asociarlo al usuario
+      if (!cart) {
+        cart = await cartService.createCart(user._id);
+      }
 
       req.logIn(user, async (err) => {
         if (err) {

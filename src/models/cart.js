@@ -7,11 +7,12 @@ const collection = "Carts";
 // Define el esquema de los productos
 const cartSchema = new Schema(
   {
-    products: {
-      type: [productSchema],
-      required: true,
-      default: [],
-    },
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Products", // Referencia al modelo de productos
+      },
+    ],
 
     user: {
       type: Schema.Types.ObjectId,

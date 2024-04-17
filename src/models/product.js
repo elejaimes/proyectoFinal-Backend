@@ -10,7 +10,6 @@ export const productSchema = new Schema(
     name: {
       type: String,
       required: [true, "El nombre es obligatorio"],
-      unique: true,
     },
 
     slug: {
