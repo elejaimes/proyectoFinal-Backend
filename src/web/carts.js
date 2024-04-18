@@ -3,7 +3,7 @@ import { cartController } from "../controllers/indexController.js";
 import { cartByIdExist } from "../helpers/dbValidator.js";
 import { fieldValidator } from "../middlewares/fieldValidator.js";
 import { check } from "express-validator";
-import { requireRole } from "../middlewares/auth.js";
+import { requireAuth, requireRole } from "../middlewares/auth.js";
 
 export const cartsWeb = Router();
 
@@ -14,6 +14,8 @@ cartsWeb.get(
   requireRole("admin"),
   cartController.cartDetail
 );
+
+cartsWeb.get("/cart", requireAuth, cartController.showUserCart);
 
 cartsWeb.get(
   "/carts/delete/:id",

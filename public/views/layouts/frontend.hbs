@@ -132,66 +132,18 @@
                 </a>
               </li>
               <li>
-                <button
-                  class="nav-link text-white"
-                  type="button"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasNavbar"
-                  aria-controls="offcanvasNavbar"
-                  aria-label="Toggle navigation"
-                >
+                <a href="/cart" class="nav-link text-white">
                   <svg
                     class="bi bi-shop d-block mx-auto mb-1"
                     width="24"
                     height="24"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
                     viewBox="0 0 16 16"
-                  >
-                    <path
+                  ><path
                       d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
-                    />
-                  </svg>
+                    /></svg>
                   Carrito
-                </button>
-                <div
-                  class="offcanvas offcanvas-end"
-                  tabindex="-1"
-                  id="offcanvasNavbar"
-                  aria-labelledby="offcanvasNavbarLabel"
-                >
-                  <div class="offcanvas-header">
-                    <h5
-                      class="offcanvas-title"
-                      id="offcanvasNavbarLabel"
-                    >Carrito</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <ul class="list-group">
-                      {{#if cart}}
-                        {{#each cart.products}}
-                          <li class="list-group-item">
-                            <div
-                              class="d-flex justify-content-between align-items-center"
-                            >
-                              <span>{{this.name}}</span>
-                              <span>Precio: ${{this.price}}</span>
-                              <span>Cantidad: {{this.quantity}}</span>
-                            </div>
-                          </li>
-                        {{/each}}
-                      {{else}}
-                        <li class="list-group-item">El carrito está vacío</li>
-                      {{/if}}
-                    </ul>
-                  </div>
-                </div>
+                </a>
               </li>
               <li>
                 <div class="dropdown">

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Detalle del Carrito</h1>
+      <hr />
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title">Productos en el Carrito</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            {{#if cart.products.length}}
+              {{#each cart.products}}
+                <li class="list-group-item">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span>{{this.name}}</span>
+                    <span>Precio: ${{this.price}}</span>
+                    <span>Cantidad: {{this.quantity}}</span>
+                  </div>
+                </li>
+              {{/each}}
+            {{else}}
+              <li class="list-group-item">El carrito está vacío</li>
+            {{/if}}
+          </ul>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">ID del carrito: {{cart._id}}</small>
+        </div>
+      </div>
+      <a href="/checkout" class="btn btn-primary">Proceder al Pago</a>
+    </div>
+  </div>
+</div>

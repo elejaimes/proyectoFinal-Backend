@@ -328,3 +328,18 @@
 [31m[2024-04-17T04:28:58.502Z] - level: error - El carrito no pudo ser eliminado[39m
 [31m[2024-04-17T04:32:55.178Z] - level: error - El carrito no pudo ser eliminado[39m
 [31m[2024-04-17T04:35:41.341Z] - level: error - Error in cartService/deleteCart: Error in cartDAO/deleteCart: Cast to ObjectId failed for value "{ _id: undefined }" (type Object) at path "_id" for model "Carts"[39m
+[31m[2024-04-17T06:16:53.917Z] - level: error - Error: Failed to lookup view "frontend" in views directory "./public/views"[39m
+[31m    at Function.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\application.js:597:17)[39m
+[31m    at ServerResponse.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\response.js:1048:7)[39m
+[31m    at showUserCart (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/controllers/cartController.js:97:9)[39m
+[31m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+[31m[2024-04-18T04:34:11.295Z] - level: error - Error: Failed to lookup view "frontend" in views directory "./public/views"[39m
+[31m    at Function.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\application.js:597:17)[39m
+[31m    at ServerResponse.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\response.js:1048:7)[39m
+[31m    at showUserCart (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/controllers/cartController.js:100:9)[39m
+[31m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+[31m[2024-04-18T04:40:25.561Z] - level: error - Error: Failed to lookup view "frontend" in views directory "./public/views"[39m
+[31m    at Function.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\application.js:597:17)[39m
+[31m    at ServerResponse.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\response.js:1048:7)[39m
+[31m    at showUserCart (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/controllers/cartController.js:99:11)[39m
+[31m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m

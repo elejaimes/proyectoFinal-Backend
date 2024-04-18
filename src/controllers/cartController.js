@@ -83,6 +83,31 @@ export const deleteCart = async (req, res) => {
   }
 };
 
+// Obtener detalles del carrito asociado al usuario autenticado
+export const showUserCart = async (req, res) => {
+  try {
+    if (req.isAuthenticated()) {
+      // 1. Obtener el ID del usuario autenticado
+      const userId = req.user._id;
+      console.log("UserID:", userId);
+
+      // 2. Buscar el carrito asociado al usuario autenticado
+      const cart = await cartService.findCartByUserId(userId);
+      console.log("Cart:", cart);
+
+      // 3. Renderizar la vista del carrito
+      res.render("cart", { cart });
+    } else {
+      // Si no hay un usuario autenticado, redirigir al inicio de sesión o enviar un error
+      res.status(401).send("No hay usuario autenticado");
+    }
+  } catch (error) {
+    // Manejar cualquier error que pueda ocurrir
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
 // // Agregar Producto al Carrito
 // export const addProductsToCart = async (req, res) => {
 //   try {

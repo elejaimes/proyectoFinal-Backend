@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { productSchema } from "./product.js";
 
 //Nombre de la colección
 const collection = "Carts";

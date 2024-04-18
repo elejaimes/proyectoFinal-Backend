@@ -78,6 +78,34 @@ passport.use(
   )
 );
 
+// serializeUser: Convierte el objeto de usuario en una identificación única para almacenar en la sesión
+passport.serializeUser((user, done) => {
+  const userId = user._id;
+  done(null, userId);
+});
+
+// deserializeUser: Toma la identificación única y la convierte de nuevo en un objeto de usuario
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await userService.getUserById(id);
+    done(null, user);
+  } catch (error) {
+    done(error);
+  }
+});
+
+const initializePassport = passport.initialize();
+const sessionPassport = passport.session();
+
+export function authentication(req, res, next) {
+  initializePassport(req, res, (error) => {
+    if (error) {
+      return next(error);
+    }
+    sessionPassport(req, res, next);
+  });
+}
+
 // Estrategia de autenticación de GitHub
 // passport.use(
 //   "github",
@@ -115,31 +143,3 @@ passport.use(
 //     }
 //   )
 // );
-
-// serializeUser: Convierte el objeto de usuario en una identificación única para almacenar en la sesión
-passport.serializeUser((user, done) => {
-  const userId = user._id;
-  done(null, userId);
-});
-
-// deserializeUser: Toma la identificación única y la convierte de nuevo en un objeto de usuario
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await userService.getUserById(id);
-    done(null, user);
-  } catch (error) {
-    done(error);
-  }
-});
-
-const initializePassport = passport.initialize();
-const sessionPassport = passport.session();
-
-export function authentication(req, res, next) {
-  initializePassport(req, res, (error) => {
-    if (error) {
-      return next(error);
-    }
-    sessionPassport(req, res, next);
-  });
-}

@@ -42,12 +42,16 @@ export const findCartById = async (id) => {
 
 export const findCartByUserId = async (userId) => {
   try {
+    console.log("Searching cart for userID:", userId);
     const cart = await CartModel.findOne({ user: userId })
       .populate("products")
       .lean();
+    console.log("Found cart:", cart);
     return cart;
   } catch (error) {
-    throw new Error(`Error in cartDAO/findCartByUserId: ${error.message}`);
+    throw new Error(
+      `Error en la búsqueda del carrito por ID de usuario: ${error.message}`
+    );
   }
 };
 

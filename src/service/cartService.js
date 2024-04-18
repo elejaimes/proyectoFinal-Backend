@@ -24,10 +24,10 @@ export const findCartById = async (id) => {
 
 export const findCartByUserId = async (userId) => {
   try {
-    const cartUser = cartDAO.findCartByUserId(userId);
-    return cartUser;
+    const cart = await cartDAO.findCartByUserId(userId);
+    return cart;
   } catch (error) {
-    throw new Error(`Error in cartService/findCartByUserId: ${error.message}`);
+    throw new Error(`Error al buscar el carrito del usuario: ${error.message}`);
   }
 };
 
