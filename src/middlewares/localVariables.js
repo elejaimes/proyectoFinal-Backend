@@ -2,7 +2,7 @@ import { authDAO } from "../dao/indexDAO.js";
 
 export const localVariables = async (req, res, next) => {
   try {
-    res.locals.csrfToken = req.csrfToken();
+    // res.locals.csrfToken = req.csrfToken();
     res.locals.errorMessages = req.flash("errorMessages");
     res.locals.successMessages = req.flash("successMessages");
 

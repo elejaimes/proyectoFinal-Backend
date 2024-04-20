@@ -49,9 +49,10 @@ export const deleteCart = async (id) => {
   }
 };
 
-export const addProductsToCart = async (cartId, products) => {
+export const addProductsToCart = async (userId, productId, quantity) => {
   try {
-    return await cartDAO.addProductsToCart(cartId, products);
+    const cart = await cartDAO.addProductsToCart(userId, productId, quantity);
+    return cart;
   } catch (error) {
     throw new Error(`Error in cartService/addProductsToCart: ${error.message}`);
   }

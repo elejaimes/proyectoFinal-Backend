@@ -7,6 +7,11 @@ import { fieldValidator } from "../middlewares/fieldValidator.js";
 export const productsWeb = Router();
 
 productsWeb.get(
+  "/productos/admin/todos-los-productos",
+  productController.getAdminPanelProducts
+);
+
+productsWeb.get(
   "/productos/todos-los-productos",
   productController.getProducts
 );

@@ -17,7 +17,7 @@
 <h1>{{title}}</h1>
 
 <div class="container mt-3">
-  <form class="mb-3" action="/productos/todos-los-productos" method="GET">
+   <form class="mb-3" action="/productos/admin/todos-los-productos" method="GET">
     <legend>Filtrar por estado:</legend>
     <div class="form-check form-check-inline">
       <input
@@ -26,7 +26,7 @@
         name="filterState"
         id="filterAll"
         value=""
-        {{#if filterAllChecked}}checked{{/if}}
+        checked
       />
       <label class="form-check-label" for="filterAll">
         Todos los productos
@@ -39,7 +39,6 @@
         name="filterState"
         id="filterActive"
         value="true"
-        {{#if filterActiveChecked}}checked{{/if}}
       />
       <label class="form-check-label" for="filterActive">
         Productos Activos
@@ -52,7 +51,6 @@
         name="filterState"
         id="filterInactive"
         value="false"
-        {{#if filterInactiveChecked}}checked{{/if}}
       />
       <label class="form-check-label" for="filterInactive">
         Productos Inactivos

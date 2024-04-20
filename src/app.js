@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import { getClientPromise } from "./database/mongodb.js";
 // import session from "express-session";
-import csrf from "csurf";
+// import csrf from "csurf";
 import { logger } from "./config/winston/logger.js";
 import connectFlash from "connect-flash";
 import sessionMiddleware from "./middlewares/sessions.js";
@@ -13,6 +13,7 @@ import { create } from "express-handlebars";
 import {
   formatPrices,
   getSession,
+  multiply,
   shortenDescription,
 } from "./helpers/handlebars.js";
 import { indexWeb } from "./web/index.js";
@@ -63,8 +64,8 @@ app.use("/public", express.static("./public"));
 //Configuración para formularios
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
-// Configuración de CSRF
-app.use(csrf());
+// // Configuración de CSRF
+// app.use(csrf());
 
 // Configuración de connect-flash
 export const flash = connectFlash();
@@ -78,6 +79,7 @@ const hbs = create({
     shortenDescription,
     formatPrices,
     getSession,
+    multiply,
   },
   partialsDir: ["./public/views/components"],
 });
@@ -102,6 +104,7 @@ app.use("/", indexWeb);
 // Middleware para manejar errores no capturados
 app.use((err, req, res, next) => {
   logger.error(err.stack);
+  console.log("Error no capturado:", err);
   res.status(500).send("Something went wrong!");
 });
 

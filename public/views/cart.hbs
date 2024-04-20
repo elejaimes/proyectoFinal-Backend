@@ -9,22 +9,34 @@
         </div>
         <div class="card-body">
           <ul class="list-group">
-            {{#if cart.products.length}}
-              {{#each cart.products}}
-                <li class="list-group-item">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <span>{{this.name}}</span>
-                    <span>Precio: ${{this.price}}</span>
-                    <span>Cantidad: {{this.quantity}}</span>
-                  </div>
-                </li>
-              {{/each}}
+            {{#if cart.cartItems.length}}
+              <ul class="list-group">
+                {{#each cart.cartItems}}
+                  <li class="list-group-item">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <span>Producto ID: {{this._id._id}}</span>
+                      <span>Cantidad: {{this.quantity}}</span>
+                      <span>Nombre: {{this._id.name}}</span>
+                      <!-- Mostrar el precio total por producto -->
+                      <span>Precio Total: ${{formatPrices
+                          (multiply this._id.price this.quantity)
+                        }}</span>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
             {{else}}
               <li class="list-group-item">El carrito está vacío</li>
             {{/if}}
           </ul>
+        </div>
+        <div class="card-footer">
+          <!-- Calcular y mostrar el total del carrito -->
+          <small class="text-muted">Total del carrito: ${{formatPrices
+              total
+            }}</small>
         </div>
         <div class="card-footer">
           <small class="text-muted">ID del carrito: {{cart._id}}</small>

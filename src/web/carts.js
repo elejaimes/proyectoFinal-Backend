@@ -15,8 +15,6 @@ cartsWeb.get(
   cartController.cartDetail
 );
 
-cartsWeb.get("/cart", requireAuth, cartController.showUserCart);
-
 cartsWeb.get(
   "/carts/delete/:id",
   [
@@ -26,4 +24,12 @@ cartsWeb.get(
   ],
   requireRole("admin"),
   cartController.deleteCart
+);
+
+cartsWeb.get("/cart", requireAuth, cartController.showUserCart);
+
+cartsWeb.post(
+  "/cart/add-product/:productId",
+  requireAuth,
+  cartController.addProductsToCart
 );

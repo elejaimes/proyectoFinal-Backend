@@ -1,5 +1,6 @@
 import { cartService } from "../service/indexService.js";
 import { logger } from "../config/winston/logger.js";
+import { calculateTotal } from "../../public/js/carts.js";
 
 export const getAllCarts = async (req, res) => {
   try {
@@ -95,8 +96,10 @@ export const showUserCart = async (req, res) => {
       const cart = await cartService.findCartByUserId(userId);
       console.log("Cart:", cart);
 
+      const total = calculateTotal(cart.cartItems);
+
       // 3. Renderizar la vista del carrito
-      res.render("cart", { cart });
+      res.render("cart", { cart, total });
     } else {
       // Si no hay un usuario autenticado, redirigir al inicio de sesión o enviar un error
       res.status(401).send("No hay usuario autenticado");
@@ -108,17 +111,39 @@ export const showUserCart = async (req, res) => {
   }
 };
 
-// // Agregar Producto al Carrito
-// export const addProductsToCart = async (req, res) => {
-//   try {
-//     const { cartId } = req.params;
-//     const { products } = req.body;
-//     const updatedCart = await cartService.addProductsToCart(cartId, products);
-//     res.status(200).json(updatedCart);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+// Agregar Producto al Carrito
+export const addProductsToCart = async (req, res) => {
+  try {
+    if (req.isAuthenticated()) {
+      const userId = req.user._id;
+      console.log("ID de usuario autenticado:", userId);
+
+      const { quantity } = req.body;
+      const productId = req.params.productId; // Obtener el productId de los parámetros de la URL
+      console.log("Datos del producto:", productId, quantity);
+
+      const cart = await cartService.findCartByUserId(userId);
+      console.log("Carrito encontrado:", cart);
+
+      const updatedCart = await cartService.addProductsToCart(
+        userId,
+        productId,
+        quantity
+      );
+      console.log("Carrito actualizado:", updatedCart);
+
+      req.flash("successMessages", "Producto agregado exitosamente al carrito");
+      res.redirect(`/cart`);
+    } else {
+      console.log("No hay usuario autenticado");
+      res.status(401).send("No hay usuario autenticado");
+    }
+  } catch (error) {
+    console.error("Error al agregar el producto al carrito:", error);
+    req.flash("errorMessages", "Error al agregar el producto al carrito");
+    res.redirect(`/`);
+  }
+};
 
 // // Actualizar Cantidad y Precios de Productos
 // export const updateProductInCart = async (req, res) => {

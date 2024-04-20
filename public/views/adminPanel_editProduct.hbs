@@ -86,40 +86,7 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" />
+    {{!-- <input type="hidden" name="_csrf" id="_csrf" value="{{csrfToken}}" /> --}}
     <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
   </div>
 </form>
-{{!-- <form
-  action="/productos/categorias/add?_csrf={{csrfToken}}"
-  method="POST"
-  name="form"
-  enctype="multipart/form-data"
->
-
-  <div class="col-md-6">
-    <label for="inputName" class="form-label">Nombre</label>
-    <input
-      type="text"
-      name="name"
-      class="form-control"
-      placeholder="Ingrese nombre de la categoría"
-    />
-  </div>
-
-  <div class="col-md-6">
-    <label for="images" class="form-label">Foto</label>
-    <input
-      type="file"
-      name="image"
-      id="images"
-      class="form-control"
-      placeholder="Subir archivo"
-      aria-label="Archivo"
-    />
-  </div>
-
-  <div class="d-flex justify-content-center">
-    <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
-  </div>
-</form> --}}

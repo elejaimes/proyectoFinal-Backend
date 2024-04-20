@@ -343,3 +343,170 @@
 [31m    at ServerResponse.render (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\response.js:1048:7)[39m
 [31m    at showUserCart (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/controllers/cartController.js:99:11)[39m
 [31m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+[31m[2024-04-19T02:18:34.046Z] - level: error - Error: #if requires exactly one argument[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\if.js:17:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:29:47)[39m
+[31m    at prog (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
+[31m    at execIteration (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:51:19)[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:61:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:23:49)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m[2024-04-19T02:21:39.003Z] - level: error - Error: #if requires exactly one argument[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\if.js:17:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:29:47)[39m
+[31m    at prog (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
+[31m    at execIteration (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:51:19)[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:61:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:23:49)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m[2024-04-19T02:23:51.590Z] - level: error - Error: #if requires exactly one argument[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\if.js:17:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:29:47)[39m
+[31m    at prog (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
+[31m    at execIteration (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:51:19)[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:61:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:23:49)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m[2024-04-20T04:53:38.731Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T04:55:25.857Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T04:57:01.219Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T05:08:39.777Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T05:32:00.315Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T05:42:12.053Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T13:37:27.425Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T13:43:03.559Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T13:50:18.817Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T13:52:35.714Z] - level: error - ForbiddenError: invalid csrf token[39m
+[31m    at csrf (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\csurf\index.js:112:19)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:137:5[39m
+[31m    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)[39m
+[31m    at invokeCallback (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:238:16)[39m
+[31m    at done (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:227:7)[39m
+[31m[2024-04-20T14:14:24.104Z] - level: error - TypeError: req.csrfToken is not a function[39m
+[31m    at localVariables (file:///C:/Users/User/OneDrive/BACKEND/backend_final/src/middlewares/localVariables.js:5:32)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:91:12)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m[2024-04-20T14:15:24.804Z] - level: error - req.csrfToken is not a function[39m
+[31m[2024-04-20T14:21:05.736Z] - level: error - req.csrfToken is not a function[39m
+[31m[2024-04-20T17:42:52.753Z] - level: error - Error: Missing helper: "formatPrice"[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\helper-missing.js:19:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:17:112)[39m
+[31m    at prog (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
+[31m    at execIteration (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:51:19)[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:61:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:11:49)[39m
+[31m    at Object.prog [as fn] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\if.js:29:22)[39m

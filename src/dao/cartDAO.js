@@ -8,7 +8,7 @@ export const getAllCarts = async (filterState, limit, since) => {
     }
     const carts = await CartModel.find(filter)
       .populate({
-        path: "products",
+        path: "cartItems._id",
         select: "name price",
       })
       .populate({
@@ -31,8 +31,14 @@ export const getAllCarts = async (filterState, limit, since) => {
 export const findCartById = async (id) => {
   try {
     const cart = await CartModel.findById(id)
-      .populate("products")
-      .populate("user")
+      .populate({
+        path: "cartItems._id",
+        select: "name price",
+      })
+      .populate({
+        path: "user",
+        select: "name email rol",
+      })
       .lean();
     return cart;
   } catch (error) {
@@ -44,7 +50,10 @@ export const findCartByUserId = async (userId) => {
   try {
     console.log("Searching cart for userID:", userId);
     const cart = await CartModel.findOne({ user: userId })
-      .populate("products")
+      .populate({
+        path: "cartItems._id",
+        select: "name price",
+      })
       .lean();
     console.log("Found cart:", cart);
     return cart;
@@ -73,28 +82,42 @@ export const deleteCart = async (id) => {
   }
 };
 
-export const addProductsToCart = async (cartId, products) => {
+export const addProductsToCart = async (userId, productId, quantity) => {
   try {
-    const cart = await CartModel.findByIdAndUpdate(
-      cartId,
-      { $push: { products: { $each: products } } },
-      { new: true }
+    const cart = await CartModel.findOne({ user: userId });
+
+    if (!cart) {
+      throw new Error("No se encontró el carrito para el usuario");
+    }
+
+    const existingCartItem = cart.cartItems.find(
+      (item) => String(item._id) === String(productId)
     );
-    return cart;
+
+    if (existingCartItem) {
+      // Si el producto ya está en el carrito, incrementar la cantidad
+      existingCartItem.quantity += parseInt(quantity);
+    } else {
+      // Si el producto no está en el carrito, agregarlo
+      cart.cartItems.push({ _id: productId, quantity });
+    }
+
+    const updatedCart = await cart.save();
+    return updatedCart;
   } catch (error) {
-    throw new Error(`Error in cartDAO/addProductsToCart: ${error.message}`);
+    throw new Error(`Error al actualizar el carrito: ${error.message}`);
   }
 };
 
 export const updateProductInCart = async (
   cartId,
-  productId,
+  _id,
   newQuantity,
   newPrice
 ) => {
   try {
     const cart = await CartModel.findOneAndUpdate(
-      { _id: cartId, "products._id": productId },
+      { _id: cartId, "products._id": _id },
       {
         $set: {
           "products.$.quantity": newQuantity,
@@ -109,11 +132,11 @@ export const updateProductInCart = async (
   }
 };
 
-export const removeProductFromCart = async (cartId, productId) => {
+export const removeProductFromCart = async (cartId, _id) => {
   try {
     const cart = await CartModel.findByIdAndUpdate(
       cartId,
-      { $pull: { products: { _id: productId } } },
+      { $pull: { products: { _id: _id } } },
       { new: true }
     );
     return cart;

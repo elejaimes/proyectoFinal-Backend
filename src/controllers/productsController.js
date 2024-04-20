@@ -3,7 +3,8 @@ import { logger } from "../config/winston/logger.js";
 import { categoryService, productService } from "../service/indexService.js";
 import { productDTO } from "../dto/productDTO.js";
 
-export const getProducts = async (req, res) => {
+// Función para renderizar productos
+const renderProducts = async (req, res, page) => {
   try {
     const { limit = 10, since = 0, filterState } = req.query;
 
@@ -29,7 +30,10 @@ export const getProducts = async (req, res) => {
       since
     );
 
-    return res.render("adminPanel_products", {
+    // const csrfToken = req.csrfToken();
+
+    // Renderizar en la página especificada
+    return res.render(page, {
       title: "Productos",
       status: "Ok",
       message,
@@ -40,12 +44,23 @@ export const getProducts = async (req, res) => {
       filterAllChecked,
       filterActiveChecked,
       filterInactiveChecked,
+      // csrfToken,
     });
   } catch (error) {
     logger.error(error.message);
     req.flash("errorMessages", [{ msg: error.message }]);
     return res.redirect("/");
   }
+};
+
+// Ruta para renderizar productos en la página adminPanel_products
+export const getAdminPanelProducts = async (req, res) => {
+  await renderProducts(req, res, "adminPanel_products");
+};
+
+// Ruta para renderizar productos en la página products
+export const getProducts = async (req, res) => {
+  await renderProducts(req, res, "products");
 };
 
 export const getProducts_add = async (req, res) => {

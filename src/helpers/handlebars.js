@@ -9,3 +9,7 @@ export const shortenDescription = (description) => {
 export const formatPrices = (price) => {
   return new Intl.NumberFormat().format(price);
 };
+
+export const multiply = (a, b) => {
+  return a * b;
+};
