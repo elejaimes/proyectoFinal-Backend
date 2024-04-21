@@ -39,3 +39,9 @@ cartsWeb.post(
   requireAuth,
   cartController.updateQuantity
 );
+
+cartsWeb.post(
+  "/cart/remove-product/:productId",
+  requireAuth,
+  cartController.removeProductFromCart
+);

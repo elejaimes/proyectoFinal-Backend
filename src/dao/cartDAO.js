@@ -145,11 +145,11 @@ export const updateQuantity = async (cartId, productId, newQuantity) => {
   }
 };
 
-export const removeProductFromCart = async (cartId, _id) => {
+export const removeProductFromCart = async (cartId, productId) => {
   try {
     const cart = await CartModel.findByIdAndUpdate(
       cartId,
-      { $pull: { products: { _id: _id } } },
+      { $pull: { cartItems: { _id: productId } } },
       { new: true }
     );
     return cart;

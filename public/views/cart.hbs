@@ -14,8 +14,8 @@
                 <tr>
                   <th scope="col">Producto ID</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col" class="col-1">Precio Total</th>
-                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio Total</th>
+                  <th scope="col" class="text-center">Cantidad</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
                   <!-- Columna para los botones -->
@@ -37,12 +37,12 @@
                     >
                       <td>
                         <label
-                          class="sr-only"
+                          class="sr-only text-center"
                           for="quantity{{this._id._id}}"
-                        >Cantidad</label>
+                        ></label>
                         <input
                           type="number"
-                          class="form-control mb-2"
+                          class="form-control formCart mb-2 text-center"
                           id="quantity{{this._id._id}}"
                           name="quantity"
                           value="{{this.quantity}}"
@@ -79,7 +79,7 @@
         </div>
         <div class="card-footer">
           <!-- Calcular y mostrar el total del carrito -->
-          <small class="text-muted">Total del carrito: ${{formatPrices
+          <small class="h5 text-muted">Total del carrito: ${{formatPrices
               total
             }}</small>
         </div>
