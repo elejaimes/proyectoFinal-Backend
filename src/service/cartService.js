@@ -58,23 +58,16 @@ export const addProductsToCart = async (userId, productId, quantity) => {
   }
 };
 
-export const updateProductInCart = async (
-  cartId,
-  productId,
-  newQuantity,
-  newPrice
-) => {
+export const updateQuantity = async (cartId, productId, quantity) => {
   try {
-    return await cartDAO.updateProductInCart(
+    const updatedCart = await cartDAO.updateQuantity(
       cartId,
       productId,
-      newQuantity,
-      newPrice
+      quantity
     );
+    return updatedCart;
   } catch (error) {
-    throw new Error(
-      `Error in cartService/updateProductInCart: ${error.message}`
-    );
+    throw new Error(`Error in cartService/updateQuantity: ${error.message}`);
   }
 };
 

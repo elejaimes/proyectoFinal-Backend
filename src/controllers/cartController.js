@@ -1,6 +1,6 @@
 import { cartService } from "../service/indexService.js";
 import { logger } from "../config/winston/logger.js";
-import { calculateTotal } from "../../public/js/carts.js";
+import { calculateTotal } from "../utils/cartsUtils.js";
 
 export const getAllCarts = async (req, res) => {
   try {
@@ -145,17 +145,29 @@ export const addProductsToCart = async (req, res) => {
   }
 };
 
-// // Actualizar Cantidad y Precios de Productos
-// export const updateProductInCart = async (req, res) => {
-//   try {
-//     const { cartId, productId } = req.params;
-//     const { newQuantity, newPrice } = req.body;
-//     const updatedCart = await cartService.updateProductInCart(cartId, productId, newQuantity, newPrice);
-//     res.status(200).json(updatedCart);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+// Actualizar Cantidad Productos en el carrito
+export const updateQuantity = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const cartId = await cartService.findCartByUserId(userId);
+    const { productId } = req.params;
+    const { quantity } = req.body;
+
+    console.log("Datos recibidos:", cartId, productId, quantity);
+    const updatedCart = await cartService.updateQuantity(
+      cartId,
+      productId,
+      quantity
+    );
+
+    console.log("Carrito actualizado:", updatedCart);
+
+    res.redirect(`/cart`);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
 
 // // Eliminar Producto de Forma Individual
 // export const removeProductFromCart = async (req, res) => {

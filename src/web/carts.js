@@ -33,3 +33,9 @@ cartsWeb.post(
   requireAuth,
   cartController.addProductsToCart
 );
+
+cartsWeb.post(
+  "/cart/update-quantity/:productId",
+  requireAuth,
+  cartController.updateQuantity
+);

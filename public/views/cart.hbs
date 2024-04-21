@@ -8,29 +8,74 @@
           <h5 class="card-title">Productos en el Carrito</h5>
         </div>
         <div class="card-body">
-          <ul class="list-group">
-            {{#if cart.cartItems.length}}
-              <ul class="list-group">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Producto ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col" class="col-1">Precio Total</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <!-- Columna para los botones -->
+                </tr>
+              </thead>
+              <tbody>
                 {{#each cart.cartItems}}
-                  <li class="list-group-item">
-                    <div
-                      class="d-flex justify-content-between align-items-center"
+                  <tr>
+                    <td>{{this._id._id}}</td>
+                    <td>{{this._id.name}}</td>
+                    <td>${{formatPrices
+                        (multiply this._id.price this.quantity)
+                      }}</td>
+                    <!-- Control de número con flechas integradas para ajustar la cantidad -->
+                    <form
+                      action="/cart/update-quantity/{{this._id._id}}"
+                      method="POST"
+                      class="update-quantity-form"
                     >
-                      <span>Producto ID: {{this._id._id}}</span>
-                      <span>Cantidad: {{this.quantity}}</span>
-                      <span>Nombre: {{this._id.name}}</span>
-                      <!-- Mostrar el precio total por producto -->
-                      <span>Precio Total: ${{formatPrices
-                          (multiply this._id.price this.quantity)
-                        }}</span>
-                    </div>
-                  </li>
+                      <td>
+                        <label
+                          class="sr-only"
+                          for="quantity{{this._id._id}}"
+                        >Cantidad</label>
+                        <input
+                          type="number"
+                          class="form-control mb-2"
+                          id="quantity{{this._id._id}}"
+                          name="quantity"
+                          value="{{this.quantity}}"
+                          min="1"
+                        />
+                      </td>
+                      <td>
+
+                        <button
+                          type="submit"
+                          class="btn btn-outline-secondary btn-sm"
+                        >Actualizar Cantidad</button>
+                      </td>
+
+                    </form>
+
+                    <td>
+                      <!-- Botón para eliminar el producto -->
+                      <form
+                        action="/cart/remove-product/{{this._id._id}}"
+                        method="POST"
+                      >
+                        <button
+                          type="submit"
+                          class="btn btn-danger btn-sm"
+                        >Eliminar</button>
+                      </form>
+                    </td>
+                  </tr>
                 {{/each}}
-              </ul>
-            {{else}}
-              <li class="list-group-item">El carrito está vacío</li>
-            {{/if}}
-          </ul>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="card-footer">
           <!-- Calcular y mostrar el total del carrito -->

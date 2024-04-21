@@ -510,3 +510,14 @@
 [31m    at eval (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:11:49)[39m
 [31m    at Object.prog [as fn] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:268:12)[39m
 [31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\if.js:29:22)[39m
+[31m[2024-04-20T17:44:20.148Z] - level: error - Error: Missing helper: "calculateTotal"[39m
+[31m    at Object.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\helpers\helper-missing.js:19:13)[39m
+[31m    at Object.wrapper (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\internal\wrapHelper.js:15:19)[39m
+[31m    at Object.eval [as main] (eval at createFunctionContext (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:13:141)[39m
+[31m    at main (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:208:32)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\runtime.js:212:12)[39m
+[31m    at ret (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:519:21)[39m
+[31m    at ExpressHandlebars._renderTemplate (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:244:16)[39m
+[31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m

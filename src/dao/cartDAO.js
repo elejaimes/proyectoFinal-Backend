@@ -132,6 +132,19 @@ export const updateProductInCart = async (
   }
 };
 
+export const updateQuantity = async (cartId, productId, newQuantity) => {
+  try {
+    const cart = await CartModel.findOneAndUpdate(
+      { _id: cartId, "cartItems._id": productId },
+      { $set: { "cartItems.$.quantity": newQuantity } },
+      { new: true }
+    );
+    return cart;
+  } catch (error) {
+    throw new Error(`Error in cartDAO/updateQuantity: ${error.message}`);
+  }
+};
+
 export const removeProductFromCart = async (cartId, _id) => {
   try {
     const cart = await CartModel.findByIdAndUpdate(
@@ -142,25 +155,6 @@ export const removeProductFromCart = async (cartId, _id) => {
     return cart;
   } catch (error) {
     throw new Error(`Error in cartDAO/removeProductFromCart: ${error.message}`);
-  }
-};
-
-export const getProductByCategory = async (categoryId, limit, since) => {
-  try {
-    const activProduct = { state: true };
-    const [products, totalProducts] = await Promise.all([
-      CartModel.find({ category: categoryId, ...activProduct }) // Filtra por el ID de la categoría
-        .populate("category", "name")
-        .limit(Number(limit))
-        .skip(Number(since))
-        .sort({ name: 1 })
-        .lean(),
-      CartModel.countDocuments({ category: categoryId, ...activProduct }), // También cuenta los documentos filtrados
-    ]);
-
-    return [products, totalProducts];
-  } catch (error) {
-    throw new Error(error.message);
   }
 };
 
