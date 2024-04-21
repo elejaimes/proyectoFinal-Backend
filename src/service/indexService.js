@@ -4,3 +4,4 @@ export * as userService from "./userService.js";
 export * as roleService from "./roleService.js";
 export * as authService from "./authService.js";
 export * as cartService from "./cartService.js";
+export * as orderService from "./orderService.js";

@@ -521,3 +521,14 @@
 [31m    at ExpressHandlebars.<anonymous> (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:156:31)[39m
 [31m    at Generator.next (<anonymous>)[39m
 [31m    at fulfilled (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express-handlebars\dist\express-handlebars.js:10:58)[39m
+[31m[2024-04-21T19:46:27.743Z] - level: error - InternalServerError: stream is not readable[39m
+[31m    at readStream (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:185:17)[39m
+[31m    at getRawBody (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\raw-body\index.js:116:12)[39m
+[31m    at read (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\read.js:79:3)[39m
+[31m    at urlencodedParser (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\types\urlencoded.js:116:5)[39m
+[31m    at Layer.handle [as handle_request] (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at trim_prefix (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:328:13)[39m
+[31m    at C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:286:9[39m
+[31m    at Function.process_params (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:346:12)[39m
+[31m    at next (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\express\lib\router\index.js:280:10)[39m
+[31m    at jsonParser (C:\Users\User\OneDrive\BACKEND\backend_final\node_modules\body-parser\lib\types\json.js:122:7)[39m

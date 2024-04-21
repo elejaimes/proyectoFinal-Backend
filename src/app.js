@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import "dotenv/config";
 import { getClientPromise } from "./database/mongodb.js";
 // import session from "express-session";
@@ -62,6 +63,7 @@ app.use(authentication);
 app.use("/public", express.static("./public"));
 
 //Configuración para formularios
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
 // // Configuración de CSRF

@@ -98,3 +98,17 @@ export const getProductByCategory = async (categoryId, limit, since) => {
     throw new Error(error.message);
   }
 };
+
+export const updateProductStock = async (productId, quantity) => {
+  try {
+    const product = await ProductModel.findById(productId);
+    if (!product) {
+      throw new Error(`Product not found with id ${productId}`);
+    }
+
+    product.stock += quantity;
+    await product.save();
+  } catch (error) {
+    throw new Error(`Error updating product stock: ${error.message}`);
+  }
+};

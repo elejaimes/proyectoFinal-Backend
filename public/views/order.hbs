@@ -1,0 +1,89 @@
+<div class="container mt-5">
+  <h1 class="mb-4 font-weight-bold">Tu Orden de Compra</h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold">Detalles de la Orden</h5>
+      <p><span class="h6">Usuario:</span>
+        {{user.name}}</p>
+      <p class="card-text"><span class="h6">Correo Electrónico:</span>
+        {{user.email}}</p>
+
+      <!-- Selección de dirección -->
+      <form id="addressForm">
+        <div class="form-group">
+          <label for="addressSelect" class="h6">Seleccionar dirección:</label>
+          <select
+            class="form-control"
+            id="addressSelect"
+            onchange="toggleAddressFields()"
+          >
+            <option value="existing">Dirección existente</option>
+            <option value="new">Agregar nueva dirección</option>
+          </select>
+        </div>
+
+        <!-- Campos de dirección -->
+        <div id="existingAddress" class="form-group">
+          <label for="existingAddressInput" class="h6">Dirección existente:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="existingAddressInput"
+            value="{{user.address}}"
+            disabled
+          />
+        </div>
+        <div id="newAddress" class="form-group" style="display:none;">
+          <label for="newAddressInput" class="h6">Agregar nueva dirección:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="newAddressInput"
+            placeholder="Ingrese nueva dirección"
+          />
+          <button
+            type="button"
+            class="btn btn-secondary mt-2"
+            onclick="updateAddress()"
+          >Actualizar Dirección</button>
+        </div>
+      </form>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each order.purchase}}
+              {{#each this.cartItems}}
+                <tr>
+                  <td>{{this._id.name}}</td>
+                  <td>{{this.quantity}}</td>
+                  <td>${{this._id.price}}</td>
+                  <td>${{formatPrices
+                      (multiply this._id.price this.quantity)
+                    }}</td>
+                </tr>
+              {{/each}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer">
+      <small class="h5 text-muted font-weight-bold">Total a Pagar: ${{formatPrices
+          order.amount
+        }}</small>
+    </div>
+    <div class="card-footer">
+      <button type="submit" form="addressForm" class="btn btn-primary">Continuar
+        con el Pago</button>
+    </div>
+  </div>
+</div>

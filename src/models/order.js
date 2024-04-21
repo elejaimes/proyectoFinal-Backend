@@ -1,47 +1,38 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
+import { randomUUID } from "crypto";
 
-const OrderSchema = Schema(
-	{
-		purchase: {
-			type: Array,
-			required: true,
-			default: [],
-		},
+const collection = "Orders";
 
-		userId: {
-			type: String,
-			required: true,
-		},
-
-		userEmail: {
-			type: String,
-			required: true,
-		},
-
-		userName: {
-			type: String,
-			required: true,
-		},
-
-		userAddress: {
-			type: String,
-			required: true,
-		},
-
-		state: {
-			type: Boolean,
-			default: true,
-			required: true,
-			description: 'Estado de la orden (activo/inactivo)',
-		},
-	},
-	{ timestamps: true, versionKey: false }
+const OrderSchema = new Schema(
+  {
+    purchase: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Carts",
+        required: true,
+      },
+    ],
+    code: {
+      type: String,
+      default: () => randomUUID(),
+      required: true,
+      unique: true,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "Users",
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+  },
+  { timestamps: true, versionKey: false }
 );
 
-OrderSchema.methods.toJSON = function () {
-	const { state, _id, ...order } = this.toObject();
-	order.orderId = _id;
-	return order;
-};
-
-export const Order = model('Orders', OrderSchema);
+export const OrderModel = model(collection, OrderSchema);

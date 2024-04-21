@@ -79,3 +79,17 @@ export const getProductByCategory = async (categoryId, limit, since) => {
     throw new Error(error.message);
   }
 };
+
+export const updateProductStock = async (productId, quantity) => {
+  try {
+    const updatedProduct = await productDAO.updateProductStock(
+      productId,
+      quantity
+    );
+    return updatedProduct;
+  } catch (error) {
+    throw new Error(
+      `Error in productService/updateProductStock: ${error.message}`
+    );
+  }
+};

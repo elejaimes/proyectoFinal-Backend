@@ -86,8 +86,10 @@
         <div class="card-footer">
           <small class="text-muted">ID del carrito: {{cart._id}}</small>
         </div>
+        <form action="/order" method="POST">
+          <button type="submit" class="btn btn-primary">Comprar</button>
+        </form>
       </div>
-      <a href="/checkout" class="btn btn-primary">Proceder al Pago</a>
     </div>
   </div>
 </div>

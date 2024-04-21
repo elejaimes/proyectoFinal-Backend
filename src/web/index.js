@@ -5,6 +5,7 @@ import { productsWeb } from "./products.js";
 import { categoriesWeb } from "./categories.js";
 import { usersWeb } from "./users.js";
 import { cartsWeb } from "./carts.js";
+import { orderWeb } from "./order.js";
 
 export const indexWeb = Router();
 
@@ -14,3 +15,4 @@ indexWeb.use(categoriesWeb);
 indexWeb.use(productsWeb);
 indexWeb.use(usersWeb);
 indexWeb.use(cartsWeb);
+indexWeb.use(orderWeb);
