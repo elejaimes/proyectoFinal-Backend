@@ -13,6 +13,7 @@ import { localVariables } from "./middlewares/localVariables.js";
 import { create } from "express-handlebars";
 import {
   formatPrices,
+  formatPurchaseTime,
   getSession,
   multiply,
   shortenDescription,
@@ -83,6 +84,7 @@ const hbs = create({
     formatPrices,
     getSession,
     multiply,
+    formatPurchaseTime,
   },
   partialsDir: ["./public/views/components"],
 });

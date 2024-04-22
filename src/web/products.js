@@ -3,14 +3,17 @@ import { body, check } from "express-validator";
 import { productController } from "../controllers/indexController.js";
 import { productByIdExist } from "../helpers/dbValidator.js";
 import { fieldValidator } from "../middlewares/fieldValidator.js";
+import { requireRole } from "../middlewares/auth.js";
 
 export const productsWeb = Router();
 
 productsWeb.get(
   "/productos/admin/todos-los-productos",
+  requireRole("admin"),
   productController.getAdminPanelProducts
 );
 
+//Cualquiera puede acceder a ver todos los productos
 productsWeb.get(
   "/productos/todos-los-productos",
   productController.getProducts
@@ -18,9 +21,11 @@ productsWeb.get(
 
 productsWeb.get(
   "/productos/todos-los-productos/add",
+  requireRole("admin"),
   productController.getProducts_add
 );
 
+//Cualquiera puede acceder a ver todos los productos
 productsWeb.get("/productos/detalles/:id", productController.getProductById);
 
 productsWeb.post(
@@ -34,6 +39,7 @@ productsWeb.post(
       .escape(),
     fieldValidator,
   ],
+  requireRole("admin"),
   productController.postProducts
 );
 
@@ -44,6 +50,7 @@ productsWeb.get(
     check("id").custom(productByIdExist),
     fieldValidator,
   ],
+  requireRole("admin"),
   productController.editProduct
 );
 
@@ -60,6 +67,7 @@ productsWeb.post(
       .escape(),
     fieldValidator,
   ],
+  requireRole("admin"),
   productController.updateProduct_post
 );
 
@@ -70,9 +78,11 @@ productsWeb.get(
     check("id").custom(productByIdExist),
     fieldValidator,
   ],
+  requireRole("admin"),
   productController.deleteProduct
 );
 
+//Cualquiera puede acceder a ver todos los productos
 productsWeb.get(
   "/productos/productos-por-categorias/:id",
   fieldValidator,

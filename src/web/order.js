@@ -7,3 +7,5 @@ export const orderWeb = Router();
 orderWeb.get("/order", requireAuth, orderController.showUserOrder);
 
 orderWeb.post("/order", requireAuth, orderController.createOrder);
+
+orderWeb.get("/order/generate-ticket", orderController.showTicket);

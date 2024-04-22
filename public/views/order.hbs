@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" id="ticket-container">
   <h1 class="mb-4 font-weight-bold">Tu Orden de Compra</h1>
   <div class="card">
     <div class="card-body">
@@ -82,8 +82,13 @@
         }}</small>
     </div>
     <div class="card-footer">
-      <button type="submit" form="addressForm" class="btn btn-primary">Continuar
-        con el Pago</button>
+      <a
+        href="/order/generate-ticket"
+        type="submit"
+        form="addressForm"
+        class="btn btn-primary"
+      >Continuar con el Pago</a>
     </div>
   </div>
 </div>
+<script src="/public/js/order.js"></script>

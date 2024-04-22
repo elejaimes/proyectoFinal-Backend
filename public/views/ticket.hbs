@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card ticket-container">
+        <div class="card-body">
+          <h1 class="card-title">¡Compra Completada con Éxito!</h1>
+          <p class="card-text">Hemos enviado el comprobante de compra al correo
+            electrónico
+            {{userEmail}}.</p>
+          <hr />
+          <p class="card-text"><strong>Número de Ticket:</strong>
+            {{orderCode}}</p>
+          <p class="card-text"><strong>Hora de Compra:</strong>
+            {{formatPurchaseTime purchaseTime}}</p>
+          <p class="card-text"><strong>Monto Total:</strong>
+            ${{formatPrices amount}}</p>
+          <p class="card-text"><strong>Email del Usuario:</strong>
+            {{userEmail}}</p>
+          <hr />
+          <p class="card-text">Gracias por tu compra. Si tienes alguna pregunta
+            o necesitas asistencia, no dudes en contactarnos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
