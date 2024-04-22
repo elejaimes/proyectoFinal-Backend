@@ -39,4 +39,4 @@ Este proyecto representa un hito significativo en mi formación como desarrollad
 
 **Contacto**
 
-Correo electrónico: ferbluis@gmail.com
+Correo electrónico: ferbluis143@gmail.com
