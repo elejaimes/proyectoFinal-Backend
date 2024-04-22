@@ -17,6 +17,7 @@ import {
   multiply,
   shortenDescription,
 } from "./helpers/handlebars.js";
+import { apiRouter } from "./apiRouter/apiRouterIndex.js";
 import { indexWeb } from "./web/index.js";
 import {
   handle500Error,
@@ -102,6 +103,7 @@ app.use(localVariables);
 
 // Configuración de las rutas
 app.use("/", indexWeb);
+app.use("/api", apiRouter);
 
 // Middleware para manejar errores no capturados
 app.use((err, req, res, next) => {
